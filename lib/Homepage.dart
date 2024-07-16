@@ -2,14 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:kenshin_clone/provider.dart';
+import 'CarouselGallery.dart';
+import 'package:kenshin_clone/FadeInDemo.dart';
+import 'package:provider/provider.dart';
+import 'MainHompage/Containers/Container_1.dart';
+import 'MainHompage/Containers/Container_2.dart';
+import 'MainHompage/Containers/Container_3.dart';
+import 'MainHompage/Containers/Container_4.dart';
 
-// 저번에는 폰트 사이즈가 통일 되지 않아서
-int ROOT_FONT_SIZE = 16;
-
-double rem(double value){
-  return ROOT_FONT_SIZE * value;
-
-}
 
 
 
@@ -18,67 +19,93 @@ class MainHomepage extends StatefulWidget{
   State<MainHomepage> createState() => _MainHomepageState();
 }
 
+
+
 class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMixin {
   late AnimationController _controller;
   late AnimationController _lineController;
+  late AnimationController _firsWidgetController;
 
+  late AnimationController AnimationController_1;
+  late AnimationController AnimationController_2;
+  late AnimationController AnimationController_3;
+  late AnimationController AnimationController_4;
+
+  final ScrollController scrollController = ScrollController();
   @override
   void initState(){
+
+    super.initState();
     _lineController = AnimationController(vsync: this, duration: Duration(seconds: 1));
 
     _controller = AnimationController(vsync: this, duration: Duration(seconds: 1));
+
+    _firsWidgetController = AnimationController(vsync: this, duration: Duration(seconds: 1));
+
+    AnimationController_1 = AnimationController(vsync: this, duration: Duration(seconds: 1));
+    AnimationController_2 = AnimationController(vsync: this, duration: Duration(seconds: 1));
+    AnimationController_3 = AnimationController(vsync: this, duration: Duration(seconds: 1));
+    AnimationController_4 = AnimationController(vsync: this, duration: Duration(seconds: 1));
+
     _lineController.forward().then((value) => _controller.forward());
+
+
+
+
 
 
   }
 
   @override
+  void didChangeDependencies(){
+    // var result = Provider.of<MyScrollPosition>(context);
+    //
+    // result.scrollPositionUpdate(scrollController.offset);
+
+    scrollController.addListener(() {
+      var result = Provider.of<MyScrollPosition>(context, listen: false);
+
+      result.scrollPositionUpdate(scrollController.offset);
+      // if(scrollController.offset > 0){
+      //   _lineController.forward().then((value) => _controller.forward());
+      // }
+      // print(scrollController.offset);
+      // if(scrollController.offset > 66){
+      //   AnimationController_1.forward();
+      // }
+      // if(scrollController.offset > 300){
+      //   AnimationController_2.forward();
+      // }
+      // if(scrollController.offset > 500){
+      //   AnimationController_3.forward();
+      // }
+      // if(scrollController.offset > 700){
+      //   AnimationController_4.forward();
+      // }
+    });
+
+  }
+  @override
   Widget build(BuildContext context){
-   return Container(
+   return Scaffold(
+     body: SingleChildScrollView(
+       controller: scrollController,
+       child: Padding(
+         padding: const EdgeInsets.fromLTRB(32,0,32,10000),
+         child: Column(
+           crossAxisAlignment: CrossAxisAlignment.start,
 
-     width: MediaQuery.of(context).size.width,
-     child: Padding(
-       padding: const EdgeInsets.fromLTRB(32,0,32,0),
-       child: Column(
-         children: [
-           Padding(
-             padding: const EdgeInsets.fromLTRB(0,16,0,16),
-             child: Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-               children: [
-                  HeaderLogo(),
-                  HeaderTextButtons(),
-                  ElevatedButton(
+           children: [
 
-                    style:ElevatedButton.styleFrom(
-                      minimumSize: Size(149,39),
-                      backgroundColor: Colors.white,
-                        surfaceTintColor: Colors.white,
-                      foregroundColor: Colors.white,
-                  )  ,
-                    onPressed: (){print("get in touch");}, child: Row(
-                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                      children: [Text("Get in Touch" ,style:  TextStyle(color: Colors.black, fontSize: 16),),
-                        SizedBox(width: 16,),
-                        Container(
-                          decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
-                          child: Icon(Icons.arrow_forward_sharp , color: Colors.black,))
-                      ],),)
-               ],
-             ),
-           ),
-           Column(
-             children: [
-               Padding(
-                 padding: const EdgeInsets.fromLTRB(0,16,0,16),
-                 child: FadeInDemo(Image.asset('assets/images/logo/big_logo.png'), _controller),
-               ),
-               Container(height: rem(1.5), color: Colors.white,),
-               Container(width: MediaQuery.of(context).size.width, height: 1, color: Colors.black,),
-               Container(height: rem(8), color: Colors.white,),
-                CarouselGallery([Container(color: Colors.black, width: 450,height: 300,), Container(color: Colors.red, width: 450, height: 300,),Container(color: Colors.blue, width: 450, height: 300,)], _controller)]
-           )
-         ],
+
+                Container_1(),
+                SizedBox(height: 140,),
+
+                Container_2(),
+                SizedBox(height: 300,),
+                Container_3()
+           ],
+         ),
        ),
      ),
    );
@@ -119,21 +146,21 @@ class HeaderTextButtons extends StatelessWidget{
 
 
 
-class FadeInDemo extends StatefulWidget {
+
+
+class EaseIn extends StatefulWidget {
   final Widget child;
   final AnimationController controller;
-  FadeInDemo(this.child, this.controller);
-  _FadeInDemoState createState() => _FadeInDemoState();
+  EaseIn(this.child, this.controller);
+  _EaseInState createState() => _EaseInState();
 }
 
-class _FadeInDemoState extends State<FadeInDemo> with TickerProviderStateMixin {
+class _EaseInState extends State<EaseIn> with TickerProviderStateMixin {
   late AnimationController _controller;
-  late CurvedAnimation _curve;
 
   @override
   void initState() {
     _controller = AnimationController(vsync: this, duration: Duration(seconds: 1));
-    _curve = CurvedAnimation(parent: widget.controller, curve: Curves.easeIn);
   }
 
   late final Animation<Offset> _offsetAnimation = Tween<Offset>(
@@ -165,57 +192,39 @@ class _FadeInDemoState extends State<FadeInDemo> with TickerProviderStateMixin {
 }
 
 
-
-
-class CarouselGallery extends StatefulWidget {
-  final List<Container> child;
-  final AnimationController controller;
-  CarouselGallery(this.child, this.controller);
-  _CarouselGalleryState createState() => _CarouselGalleryState();
+class myCon extends StatefulWidget{
+  @override
+  State<myCon> createState() => _myConState();
 }
 
-class _CarouselGalleryState extends State<CarouselGallery> with TickerProviderStateMixin {
-  late AnimationController _controller;
-  late CurvedAnimation _curve;
+class _myConState extends State<myCon> with TickerProviderStateMixin {
+  late AnimationController AnimationController_1;
+
 
   @override
-  void initState() {
-    _controller = AnimationController(vsync: this, duration: Duration(seconds: 10));
-    _curve = CurvedAnimation(parent: widget.controller, curve: Curves.easeIn);
-    _controller.forward();
-    if(_controller.isAnimating){
+  void initState(){
+    AnimationController_1 = AnimationController(vsync: this, duration: Duration(seconds: 1));
 
+
+
+    super.initState();
+
+
+  }
+  @override
+  void didChangeDependencies(){
+
+    var result = Provider.of<MyScrollPosition>(context);
+    if(result.scrollPosition > 500){
+      AnimationController_1.forward();
     }
   }
-
-  late final Animation<Offset> _offsetAnimation = Tween<Offset>(
-    begin: Offset(1.0, 0),
-    end: Offset(-1.5,0.0),
-  ).animate(CurvedAnimation(
-    parent: _controller,
-    curve: Curves.easeIn,
-  ));
-
   @override
-  Widget build(BuildContext context) {
-    return SlideTransition(
-        position: _offsetAnimation,
-        child: Builder(
-          builder: (context) {
-
-            return Container(child: Row(children: widget.child,),);
-          }
-        )
-      // child: FadeTransition(
-      //     opacity: _curve,
-      //     child: widget.child
-      // ),
-    );
-  }
-
-  @override
-  dispose() {
-    _controller.dispose();
-    super.dispose();
+  Widget build(BuildContext context){
+    return FadeInDemo(child: Container(width:  300, height: 300, color: Colors.red,), controller: AnimationController_1,);
   }
 }
+
+
+
+
