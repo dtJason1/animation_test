@@ -68,7 +68,74 @@ class _Container_4State extends State<Container_4> with TickerProviderStateMixin
 
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset()
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                Container(
+                  width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TranslateOnHover(child:
+                          Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
+                      ),
+                      Text("Duke",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
+                      Text("Brand Identity",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+
+                    ],
+                  ),
+                ),
+                  Container(
+                    width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TranslateOnHover(child:
+                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
+                        ),
+                        Text("Saason",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
+                        Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+
+                      ],
+                    ),
+                  ),
+
+
+              ],),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TranslateOnHover(child:
+                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
+                        ),
+                        Text("Levi Colwill",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
+                        Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TranslateOnHover(child:
+                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
+                        ),
+                        Text("Will",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
+                        Text("Branding",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+
+                      ],
+                    ),
+                  ),
+
+
+                ],)
 
 
             ],

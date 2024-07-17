@@ -59,7 +59,7 @@ class _Container_5State extends State<Container_5> with TickerProviderStateMixin
     return Container(
       color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(0, rem(10), 0, rem(10)),
+        padding: EdgeInsets.fromLTRB(rem(2), rem(10), rem(2), rem(10)),
         child: Container(
 
           width: MediaQuery.of(context).size.width,
