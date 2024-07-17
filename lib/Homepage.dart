@@ -11,7 +11,7 @@ import 'MainHompage/Containers/Container_2.dart';
 import 'MainHompage/Containers/Container_3.dart';
 import 'MainHompage/Containers/Container_4.dart';
 import 'MainHompage/Containers/Container_5.dart';
-
+import 'MainHompage/Containers/Container_6.dart';
 import 'MainHompage/Containers/Header.dart';
 
 
@@ -106,7 +106,8 @@ class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMix
                   Container_2(),
                   Container_3(),
                   Container_4(),
-                  Container_5()
+                  Container_5(),
+                  Container_6()
              ],
            ),
          ],

@@ -96,7 +96,7 @@ class _Container_3State extends State<Container_3> with TickerProviderStateMixin
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(width: ((MediaQuery.of(context).size.width)-(2*rem(2)))/12*3 , height: ((MediaQuery.of(context).size.width)-(2*rem(2)))/12*3/16*9,
-                              decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/bezos.jpg")))
+                              decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/bezos.jpg"), fit: BoxFit.fitWidth))
 
 
                         ),

@@ -68,6 +68,36 @@ class _Container_4State extends State<Container_4> with TickerProviderStateMixin
 
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  ElevatedButton(
+
+                    style:ElevatedButton.styleFrom(
+
+                      backgroundColor: Colors.white,
+                      surfaceTintColor: Colors.white,
+                      foregroundColor: Colors.white,
+                      shadowColor: Colors.transparent,
+                      padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
+                      shape: RoundedRectangleBorder(side: BorderSide(
+                          color: Colors.black,
+                          width: 1,
+                          style: BorderStyle.solid
+                      ), borderRadius: BorderRadius.circular(24)),
+
+                    )  ,
+                    onPressed: (){print("get in touch");}, child: Text("Work" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
+                  Container(width: MediaQuery.of(context).size.width/12*3,),
+                  Container(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width/12*6,),
+                      child: Text("Our work lie in effectively implementing strategic plans to generate tangible business value",style: TextStyle(fontWeight: FontWeight.w500, fontSize: rem(3.5), ),)
+                    ,
+                  )
+                ],
+              ),
+              Container(height: rem(1), color: Colors.white,),
+              Container(width: MediaQuery.of(context).size.width, height: 1, color: Colors.black,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

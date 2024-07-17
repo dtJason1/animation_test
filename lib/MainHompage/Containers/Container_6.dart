@@ -7,12 +7,12 @@ import '../../Settings.dart';
 
 
 
-class Container_5 extends StatefulWidget{
+class Container_6 extends StatefulWidget{
   @override
-  State<Container_5> createState() => _Container_5State();
+  State<Container_6> createState() => _Container_6State();
 }
 
-class _Container_5State extends State<Container_5> with TickerProviderStateMixin {
+class _Container_6State extends State<Container_6> with TickerProviderStateMixin {
   late AnimationController AnimationController_0;
 
   late AnimationController AnimationController_1;
@@ -68,18 +68,64 @@ class _Container_5State extends State<Container_5> with TickerProviderStateMixin
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.width/16*11,
-                    child: Image.asset("assets/images/big_image.png", fit: BoxFit.cover,),
+                  ElevatedButton(
+
+                    style:ElevatedButton.styleFrom(
+
+                      backgroundColor: Colors.white,
+                      surfaceTintColor: Colors.white,
+                      foregroundColor: Colors.white,
+                      shadowColor: Colors.transparent,
+                      padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
+                      shape: RoundedRectangleBorder(side: BorderSide(
+                          color: Colors.black,
+                          width: 1,
+                          style: BorderStyle.solid
+                      ), borderRadius: BorderRadius.circular(24)),
+
+                    )  ,
+                    onPressed: (){print("get in touch");}, child: Text("TESTIMONIAL" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
+                  Container(width: MediaQuery.of(context).size.width/12*3,),
+                  Container(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width/12*6,),
+                    child: Text("We help you avoid looking like the rest of them",style: TextStyle(fontWeight: FontWeight.w500, fontSize: rem(3.5), ),)
+                    ,
+                  )
+                ],
+              ),
+              Container(height: rem(1), color: Colors.white,),
+              Container(width: MediaQuery.of(context).size.width, height: 1, color: Colors.black,),
+              Container(height: rem(3), color: Colors.white,),
+
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset("assets/images/Human_face.png"),
+                      Container(width: rem(1.5),),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width/12*3),
+                            child: Text("Working with Kenshin Studio was an absolute delight! They listened to our requirements and turned our vision into a stunning reality. The attention to detail and creativity in their designs truly set them apart. We couldn't be happier with the outcome", softWrap:true, style:  TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),),
+                          Container(height: rem(1.5),),
+                          Container(child: Text("Chandler Riggs",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),),
+                          Container(child: Text("CEO of Relix",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),),)
+
+                        ],
+                      )
+
+
+                    ],
 
                   )
 
-                ],)
-
-
+              ],)
             ],
           ),
         ),
