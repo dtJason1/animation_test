@@ -100,12 +100,14 @@ class _Container_6State extends State<Container_6> with TickerProviderStateMixin
 
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                 children: [
 
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.asset("assets/images/Human_face.png"),
+                      Image.asset("assets/images/Human_face.png", width: 72, height: 72,),
                       Container(width: rem(1.5),),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,7 +125,38 @@ class _Container_6State extends State<Container_6> with TickerProviderStateMixin
 
                     ],
 
+                  ),
+                  Column(
+                    children: [
+                      Row(children: [
+                        Container(height: MediaQuery.of(context).size.width/100*12, width: MediaQuery.of(context).size.width/12*2, color: Color.fromRGBO(245, 245, 245, 1),
+                        child:  Image.asset("assets/images/logo.png"),),
+                        Container(width: rem(1),),
+                        Container(height: MediaQuery.of(context).size.width/100*12, width: MediaQuery.of(context).size.width/12*2, color: Color.fromRGBO(245, 245, 245, 1),
+                          child:  Image.asset("assets/images/logo.png"),),
+                        Container(width: rem(1),),
+
+                        Container(height: MediaQuery.of(context).size.width/100*12, width: MediaQuery.of(context).size.width/12*2, color: Color.fromRGBO(245, 245, 245, 1),
+                          child:  Image.asset("assets/images/logo.png"),),
+
+
+                      ],),
+                      Container(height: rem(1),),
+                      Row(children: [
+                        Container(height: MediaQuery.of(context).size.width/100*12, width: MediaQuery.of(context).size.width/12*2, color: Color.fromRGBO(245, 245, 245, 1),
+                          child:  Image.asset("assets/images/logo.png"),),
+                        Container(width: rem(1),),
+                        Container(height: MediaQuery.of(context).size.width/100*12, width: MediaQuery.of(context).size.width/12*2, color: Color.fromRGBO(245, 245, 245, 1),
+                          child:  Image.asset("assets/images/logo.png"),),
+                        Container(width: rem(1),),
+
+                        Container(height: MediaQuery.of(context).size.width/100*12, width: MediaQuery.of(context).size.width/12*2, color: Color.fromRGBO(245, 245, 245, 1),
+                          child:  Image.asset("assets/images/logo.png"),),
+                      ],),
+                    ],
                   )
+
+
 
               ],)
             ],
