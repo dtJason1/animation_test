@@ -44,60 +44,40 @@ class _Container_1State extends State<Container_1> with TickerProviderStateMixin
   }
   @override
   Widget build(BuildContext context){
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.fromLTRB(0,rem(1),0,rem(1)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              HeaderLogo(),
-              HeaderTextButtons(),
-              ElevatedButton(
+    return Container(
+      color: Colors.white,
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.fromLTRB(rem(2), rem(2),rem(2),rem(3)),
+            child: Column(
+              children: [
+                Container(
 
-                style:ElevatedButton.styleFrom(
-                  minimumSize: Size(149,39),
-                  backgroundColor: Colors.white,
-                  surfaceTintColor: Colors.white,
-                  foregroundColor: Colors.white,
-                )  ,
-                onPressed: (){print("get in touch");}, child: Row(
-                mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                children: [Text("Get in Touch" ,style:  TextStyle(color: Colors.black, fontSize: 16),),
-                  SizedBox(width: 16,),
-                  Container(
-                      decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
-                      child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
-                  )
-                ],),)
-            ],
+                    child: Column(
+                      children: [
+                        LineAnimation(AnimationController_0),
+                        Container(height: rem(1.5),),
+                        Container(color: Colors.black, width: MediaQuery.of(context).size.width, height: 1,),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(((MediaQuery.of(context).size.width -34)/12*6),rem(8),0,0),
+                          child: Container(
+
+                            constraints: BoxConstraints(maxWidth: (MediaQuery.of(context).size.width - 34)/12*2),
+                            child: Text("Kenshin is a design studio based in Tokyo - works globally to create iconic brands experiences, with a particular emphasis on what is essential", style: TextStyle(fontSize: rem(1.4)),),),
+                        ),
+
+                      ],
+                    )),
+
+                Container(height: rem(8),),
+
+                CarouselGallery()
+              ],
+            ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.fromLTRB(0,rem(2),0,rem(3)),
-          child: Container(
-
-              child: Column(
-                children: [
-                  LineAnimation(AnimationController_0),
-                  Container(height: rem(1.5),),
-                  Container(color: Colors.black, width: MediaQuery.of(context).size.width, height: 1,),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(((MediaQuery.of(context).size.width -34)/12*6),rem(8),0,0),
-                    child: Container(
-
-                      constraints: BoxConstraints(maxWidth: (MediaQuery.of(context).size.width - 34)/12*2),
-                      child: Text("Kenshin is a design studio based in Tokyo - works globally to create iconic brands experiences, with a particular emphasis on what is essential", style: TextStyle(fontSize: rem(1.4)),),),
-                  ),
-
-                ],
-              )),
-        ),
-
-        Container(height: rem(8),),
-
-        CarouselGallery()
-      ],
+        ],
+      ),
     );
 
   }

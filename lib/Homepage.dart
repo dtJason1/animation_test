@@ -10,7 +10,7 @@ import 'MainHompage/Containers/Container_1.dart';
 import 'MainHompage/Containers/Container_2.dart';
 import 'MainHompage/Containers/Container_3.dart';
 import 'MainHompage/Containers/Container_4.dart';
-
+import 'MainHompage/Containers/Header.dart';
 
 
 
@@ -90,22 +90,23 @@ class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMix
    return Scaffold(
      body: SingleChildScrollView(
        controller: scrollController,
-       child: Padding(
-         padding: const EdgeInsets.fromLTRB(32,0,32,10000),
-         child: Column(
-           crossAxisAlignment: CrossAxisAlignment.start,
+       child: Stack(
+         children: [
 
-           children: [
+           Column(
+             crossAxisAlignment: CrossAxisAlignment.start,
 
+             children: [
+                  myHeader(),
 
-                Container_1(),
-                SizedBox(height: 140,),
+                  Container_1(),
 
-                Container_2(),
-                SizedBox(height: 300,),
-                Container_3()
-           ],
-         ),
+                  Container_2(),
+                  Container_3(),
+                  Container_4()
+             ],
+           ),
+         ],
        ),
      ),
    );

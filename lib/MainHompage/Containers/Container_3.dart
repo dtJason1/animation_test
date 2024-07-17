@@ -56,23 +56,149 @@ class _Container_3State extends State<Container_3> with TickerProviderStateMixin
   @override
   Widget build(BuildContext context){
     return Container(
-      width: MediaQuery.of(context).size.width,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          FadeInDemo(controller:AnimationController_0, child: Container(color: Colors.cyan, width: MediaQuery.of(context).size.width/10 , height: MediaQuery.of(context).size.width/10,)),
-          Column(children: [
-            FadeInDemo(child: Text("Brand Design",style: TextStyle(fontWeight: FontWeight.bold , fontSize: rem(3.5))), controller: AnimationController_0,),
-            FadeInDemo(child: Text("Web Design",style: TextStyle(fontWeight: FontWeight.bold , fontSize: rem(3.5))), controller: AnimationController_1,),
-            FadeInDemo(child: Text("Motion Design",style: TextStyle(fontWeight: FontWeight.bold , fontSize: rem(3.5))), controller: AnimationController_2,),
-            FadeInDemo(child: Text("3D Design",style: TextStyle(fontWeight: FontWeight.bold , fontSize: rem(3.5))), controller: AnimationController_3,),
-            FadeInDemo(child: Text("Development",style: TextStyle(fontWeight: FontWeight.bold , fontSize: rem(3.5))), controller: AnimationController_4,),
-            SizedBox(height: 10,)
+      color: Colors.white,
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(rem(2), rem(10), rem(2), rem(10)),
+        child: Container(
+
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start  ,
+
+            children: [
+              ElevatedButton(
+
+                style:ElevatedButton.styleFrom(
+
+                  backgroundColor: Colors.white,
+                  surfaceTintColor: Colors.white,
+                  foregroundColor: Colors.white,
+                  shadowColor: Colors.transparent,
+                  padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
+                  shape: RoundedRectangleBorder(side: BorderSide(
+                      color: Colors.black,
+                      width: 1,
+                      style: BorderStyle.solid
+                  ), borderRadius: BorderRadius.circular(24)),
+
+                )  ,
+                onPressed: (){print("get in touch");}, child: Text("Services" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
+              SizedBox(height: rem(1),),
+              Container(width: MediaQuery.of(context).size.width, height: 1,color: Colors.black,),
+              SizedBox(height: rem(3),),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  FadeInDemo(controller:AnimationController_0, child: Container(
+                      width: ((MediaQuery.of(context).size.width)-(2*rem(2)))/12*3,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(width: ((MediaQuery.of(context).size.width)-(2*rem(2)))/12*3 , height: ((MediaQuery.of(context).size.width)-(2*rem(2)))/12*3/16*9,
+                              decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/bezos.jpg")))
 
 
-          ],)
+                        ),
+                        Container(height: rem(1),),
+                        Text("We create business value from strategy to perfect execution", softWrap: true, style: TextStyle(fontSize: rem(1.4), fontWeight: FontWeight.w400),)
+                    
+                      ],
+                    ),
+                  )
 
-        ],
+                  ),
+                  SizedBox(width: (MediaQuery.of(context).size.width- (2*rem(2))  )/12*4 ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    children: [
+                    FadeInDemo(child:
+                    Row(
+
+                      children: [
+                        Text("Brand Design",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: MediaQuery.of(context).size.width/100*5)),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0,0,0,50),
+                          child: Text("(01)",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: rem(1))),
+                        )
+                      ],
+                    ), controller: AnimationController_0,),
+                    FadeInDemo(child:  Row(
+
+                      children: [
+                        Text("Web Design",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: MediaQuery.of(context).size.width/100*5)),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0,0,0,50),
+                          child: Text("(02)",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: rem(1))),
+                        )
+                      ],
+                    ), controller: AnimationController_1,),
+                    FadeInDemo(child: Row(
+
+                      children: [
+                        Text("Motion Design",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: MediaQuery.of(context).size.width/100*5)),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0,0,0,50),
+                          child: Text("(03)",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: rem(1))),
+                        )
+                      ],
+                    ),controller: AnimationController_2,),
+                    FadeInDemo(child: Row(
+
+                      children: [
+                        Text("3D Design",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: MediaQuery.of(context).size.width/100*5)),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0,0,0,50),
+                          child: Text("(04)",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: rem(1))),
+                        )
+                      ],
+                    ), controller: AnimationController_3,),
+                    FadeInDemo(child: Row(
+
+                      children: [
+                        Text("Development",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: MediaQuery.of(context).size.width/100*5)),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0,0,0,50),
+                          child: Text("(05)",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: rem(1))),
+                        )
+                      ],
+                    ), controller: AnimationController_4,),
+                    SizedBox(height: rem(4),),
+                      ElevatedButton(
+
+                        style:ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          surfaceTintColor: Colors.white,
+                          foregroundColor: Colors.white,
+                          shadowColor: Colors.transparent,
+                          padding: EdgeInsets.fromLTRB(rem(1), rem(0.25), rem(0.25), rem(0.25)),
+                          shape: RoundedRectangleBorder(side: BorderSide(
+                              color: Colors.black,
+                              width: 1,
+                              style: BorderStyle.solid
+                          ), borderRadius: BorderRadius.circular(24)),
+
+                        )  ,
+                        onPressed: (){print("get in touch");}, child: Row(
+                        mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("View Detail" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
+                          SizedBox(width: rem(0.5),),
+                          Container(
+                              decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
+                              child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
+                          )
+                        ],),)
+
+
+                    ],)
+
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
