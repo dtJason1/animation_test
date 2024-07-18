@@ -7,13 +7,12 @@ import '../../provider.dart';
 import '../../FadeInDemo.dart';
 import '../../Settings.dart';
 
-
-class Container_4 extends StatefulWidget{
+class TabletContainer_4 extends StatefulWidget{
   @override
-  State<Container_4> createState() => _Container_4State();
+  State<TabletContainer_4> createState() => _TabletContainer_4State();
 }
 
-class _Container_4State extends State<Container_4> with TickerProviderStateMixin {
+class _TabletContainer_4State extends State<TabletContainer_4> with TickerProviderStateMixin {
   late AnimationController AnimationController_0;
 
   late AnimationController AnimationController_1;
@@ -91,7 +90,7 @@ class _Container_4State extends State<Container_4> with TickerProviderStateMixin
                     onPressed: (){print("get in touch");}, child: Text("Work" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
                   Container(width: MediaQuery.of(context).size.width/12*3,),
                   Container(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width/12*6,),
-                      child: Text("Our work lie in effectively implementing strategic plans to generate tangible business value",style: TextStyle(fontWeight: FontWeight.w500, fontSize: rem(3.5), ),)
+                    child: Text("Our work lie in effectively implementing strategic plans to generate tangible business value",style: TextStyle(fontWeight: FontWeight.w500, fontSize: rem(2.2), ),)
                     ,
                   )
                 ],
@@ -101,20 +100,6 @@ class _Container_4State extends State<Container_4> with TickerProviderStateMixin
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                Container(
-                  width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      TranslateOnHover(child:
-                          Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
-                      ),
-                      Text("Duke",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
-                      Text("Brand Identity",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
-
-                    ],
-                  ),
-                ),
                   Container(
                     width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
                     child: Column(
@@ -123,15 +108,29 @@ class _Container_4State extends State<Container_4> with TickerProviderStateMixin
                         TranslateOnHover(child:
                         Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
                         ),
-                        Text("Saason",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
-                        Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+                        Text("Duke",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
+                        Text("Brand Identity",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TranslateOnHover(child:
+                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
+                        ),
+                        Text("Saason",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
+                        Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.0), color: Color.fromRGBO(0, 0, 0, 0.5)),)
 
                       ],
                     ),
                   ),
 
 
-              ],),
+                ],),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -143,8 +142,8 @@ class _Container_4State extends State<Container_4> with TickerProviderStateMixin
                         TranslateOnHover(child:
                         Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
                         ),
-                        Text("Levi Colwill",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
-                        Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+                        Text("Levi Colwill",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
+                        Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.0), color: Color.fromRGBO(0, 0, 0, 0.5)),)
 
                       ],
                     ),
@@ -157,8 +156,8 @@ class _Container_4State extends State<Container_4> with TickerProviderStateMixin
                         TranslateOnHover(child:
                         Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
                         ),
-                        Text("Will",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
-                        Text("Branding",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+                        Text("Will",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
+                        Text("Branding",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.0), color: Color.fromRGBO(0, 0, 0, 0.5)),)
 
                       ],
                     ),

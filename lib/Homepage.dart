@@ -6,15 +6,18 @@ import 'package:kenshin_clone/provider.dart';
 import 'CarouselGallery.dart';
 import 'package:kenshin_clone/FadeInDemo.dart';
 import 'package:provider/provider.dart';
-import 'MainHompage/Containers/Container_1.dart';
-import 'MainHompage/Containers/Container_2.dart';
-import 'MainHompage/Containers/Container_3.dart';
-import 'MainHompage/Containers/Container_4.dart';
-import 'MainHompage/Containers/Container_5.dart';
-import 'MainHompage/Containers/Container_6.dart';
-import 'MainHompage/Containers/Header.dart';
-
-
+import 'MainHompage/WebContainers/Container_1.dart';
+import 'MainHompage/WebContainers/Container_2.dart';
+import 'MainHompage/WebContainers/Container_3.dart';
+import 'MainHompage/WebContainers/Container_4.dart';
+import 'MainHompage/WebContainers/Container_5.dart';
+import 'MainHompage/WebContainers/Container_6.dart';
+import 'MainHompage/WebContainers/Header.dart';
+import 'MainHompage/WebContainers/Footer.dart';
+import 'MainHompage/TabletContainers/tabletContainers_1.dart';
+import 'MainHompage/TabletContainers/TabletContainers_2.dart';
+import 'MainHompage/TabletContainers/TabletContainers_3.dart';
+import 'MainHompage/TabletContainers/TabletContainers_4.dart';
 
 class MainHomepage extends StatefulWidget{
   @override
@@ -95,20 +98,48 @@ class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMix
        child: Stack(
          children: [
 
-           Column(
-             crossAxisAlignment: CrossAxisAlignment.start,
+           Builder(
+             builder: (context) {
+               if(MediaQuery.of(context).size.width  > 1300){
 
-             children: [
-                  myHeader(),
+                 return Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
 
-                  Container_1(),
+                   children: [
+                     myHeader(),
 
-                  Container_2(),
-                  Container_3(),
-                  Container_4(),
-                  Container_5(),
-                  Container_6()
-             ],
+                     WebContainer_1(),
+
+                     WebContainer_2(),
+                     WebContainer_3(),
+                     WebContainer_4(),
+                     WebContainer_5(),
+                     WebContainer_6(),
+                     Footer(),
+
+
+                   ],
+                 );
+
+               }
+               else if(MediaQuery.of(context).size.width < 1300 && MediaQuery.of(context).size.width > 700) {
+                 return Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+
+                   children: [
+                     TabletContainer_1(),
+                     TabletContainer_2(),
+                     TabletContainer_3(),
+                     TabletContainer_4()
+
+                   ],
+                 );
+
+               }
+               else{
+                 return Column();
+               }
+             }
            ),
          ],
        ),

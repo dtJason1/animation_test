@@ -7,12 +7,12 @@ import '../../Settings.dart';
 
 
 
-class Container_6 extends StatefulWidget{
+class WebContainer_6 extends StatefulWidget{
   @override
-  State<Container_6> createState() => _Container_6State();
+  State<WebContainer_6> createState() => _WebContainer_6State();
 }
 
-class _Container_6State extends State<Container_6> with TickerProviderStateMixin {
+class _WebContainer_6State extends State<WebContainer_6> with TickerProviderStateMixin {
   late AnimationController AnimationController_0;
 
   late AnimationController AnimationController_1;

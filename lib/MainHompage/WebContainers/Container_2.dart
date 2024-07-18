@@ -5,12 +5,12 @@ import 'package:provider/provider.dart';
 import '../../provider.dart';
 import '../../FadeInDemo.dart';
 import '../../Settings.dart';
-class Container_2 extends StatefulWidget{
+class WebContainer_2 extends StatefulWidget{
   @override
-  State<Container_2> createState() => _Container_2State();
+  State<WebContainer_2> createState() => _WebContainer_2State();
 }
 
-class _Container_2State extends State<Container_2> with TickerProviderStateMixin {
+class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStateMixin {
   late AnimationController AnimationController_0;
 
   late AnimationController AnimationController_1;

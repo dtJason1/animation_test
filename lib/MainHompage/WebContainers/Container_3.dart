@@ -6,12 +6,12 @@ import '../../FadeInDemo.dart';
 import '../../Settings.dart';
 
 
-class Container_3 extends StatefulWidget{
+class WebContainer_3 extends StatefulWidget{
   @override
-  State<Container_3> createState() => _Container_3State();
+  State<WebContainer_3> createState() => _WebContainer_3State();
 }
 
-class _Container_3State extends State<Container_3> with TickerProviderStateMixin {
+class _WebContainer_3State extends State<WebContainer_3> with TickerProviderStateMixin {
   late AnimationController AnimationController_0;
 
   late AnimationController AnimationController_1;
@@ -67,7 +67,6 @@ class _Container_3State extends State<Container_3> with TickerProviderStateMixin
 
             children: [
               ElevatedButton(
-
                 style:ElevatedButton.styleFrom(
 
                   backgroundColor: Colors.white,

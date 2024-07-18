@@ -33,7 +33,12 @@ class _CarouselGalleryState extends State<CarouselGallery> with TickerProviderSt
   }
 
 
+  @override
+  void dispose(){
 
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +48,7 @@ class _CarouselGalleryState extends State<CarouselGallery> with TickerProviderSt
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(color: Colors.white),
       child: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
         scrollDirection: Axis.horizontal,
 
         child: AnimatedBuilder(animation: _animationController,
