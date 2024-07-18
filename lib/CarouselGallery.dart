@@ -43,9 +43,6 @@ class _CarouselGalleryState extends State<CarouselGallery> with TickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 300,
-      clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(color: Colors.white),
       child: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
@@ -148,7 +145,6 @@ class _CarouselGalleryState extends State<CarouselGallery> with TickerProviderSt
 
 
                 ]),
-                Container(width: MediaQuery.of(context).size.width,)
               ],
             ),
             builder: (BuildContext context, Widget? child){

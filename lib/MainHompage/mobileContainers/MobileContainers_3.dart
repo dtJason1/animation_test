@@ -7,12 +7,12 @@ import '../../FadeInDemo.dart';
 import '../../Settings.dart';
 
 
-class TabletContainer_3 extends StatefulWidget{
+class MobileContainer_3 extends StatefulWidget{
   @override
-  State<TabletContainer_3> createState() => _TabletContainer_3State();
+  State<MobileContainer_3> createState() => _MobileContainer_3State();
 }
 
-class _TabletContainer_3State extends State<TabletContainer_3> with TickerProviderStateMixin {
+class _MobileContainer_3State extends State<MobileContainer_3> with TickerProviderStateMixin {
   late AnimationController AnimationController_0;
 
   late AnimationController AnimationController_1;
@@ -182,8 +182,8 @@ class _TabletContainer_3State extends State<TabletContainer_3> with TickerProvid
                         )  ,
                         onPressed: (){print("get in touch");}, child: Container(
                         width: 137.5,
-                          height: 38.67,
-                          child: Row(
+                        height: 38.67,
+                        child: Row(
                           mainAxisAlignment:MainAxisAlignment.spaceBetween,
                           children: [
                             Text("View Detail" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
@@ -193,7 +193,7 @@ class _TabletContainer_3State extends State<TabletContainer_3> with TickerProvid
                                 child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
                             )
                           ],),
-                        ),)
+                      ),)
 
 
                     ],)

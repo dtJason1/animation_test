@@ -57,7 +57,7 @@ class _TabletContainer_2State extends State<TabletContainer_2> with TickerProvid
     return Container(
       color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(rem(2),rem(10),rem(2),rem(10)),
+        padding: EdgeInsets.fromLTRB(rem(1),rem(4),rem(1),rem(4)),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

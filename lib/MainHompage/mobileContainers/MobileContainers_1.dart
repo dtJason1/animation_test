@@ -6,28 +6,21 @@ import '../../provider.dart';
 import '../../FadeInDemo.dart';
 import '../../CarouselGallery.dart';
 import '../../Settings.dart';
-class WebContainer_1 extends StatefulWidget{
+class MobileContainer_1 extends StatefulWidget{
   @override
-  State<WebContainer_1> createState() => _WebContainer_1State();
+  State<MobileContainer_1> createState() => _MobileContainer_1State();
 }
 
-class _WebContainer_1State extends State<WebContainer_1> with TickerProviderStateMixin {
+class _MobileContainer_1State extends State<MobileContainer_1> with TickerProviderStateMixin {
   late AnimationController AnimationController_0;
 
-  late AnimationController AnimationController_1;
-  late AnimationController AnimationController_2;
-  late AnimationController AnimationController_3;
-  late AnimationController AnimationController_4;
 
 
   @override
   void initState(){
     AnimationController_0 = AnimationController(vsync: this, duration: Duration(seconds: 1));
 
-    AnimationController_1 = AnimationController(vsync: this, duration: Duration(seconds: 1));
-    AnimationController_2 = AnimationController(vsync: this, duration: Duration(seconds: 1));
-    AnimationController_3 = AnimationController(vsync: this, duration: Duration(seconds: 1));
-    AnimationController_4 = AnimationController(vsync: this, duration: Duration(seconds: 1));
+
 
     super.initState();
 
@@ -60,17 +53,16 @@ class _WebContainer_1State extends State<WebContainer_1> with TickerProviderStat
                         Container(height: rem(1.5),),
                         Container(color: Colors.black, width: MediaQuery.of(context).size.width, height: 1,),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(((MediaQuery.of(context).size.width -34)/12*6),rem(8),0,0),
+                          padding: EdgeInsets.fromLTRB(((MediaQuery.of(context).size.width -2*rem(2))/8*4),0,0,0),
                           child: Container(
 
-                            constraints: BoxConstraints(maxWidth: (MediaQuery.of(context).size.width - 34)/12*2),
+                            constraints: BoxConstraints(maxWidth: (MediaQuery.of(context).size.width - 2*rem(2))/8*4),
                             child: Text("Kenshin is a design studio based in Tokyo - works globally to create iconic brands experiences, with a particular emphasis on what is essential", style: TextStyle(fontSize: rem(1.4)),),),
                         ),
 
                       ],
                     )),
 
-                Container(height: rem(8),),
 
                 CarouselGallery()
               ],

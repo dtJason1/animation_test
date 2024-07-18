@@ -59,7 +59,7 @@ class _TabletContainer_4State extends State<TabletContainer_4> with TickerProvid
     return Container(
       color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(rem(2), rem(10), rem(2), rem(10)),
+        padding: EdgeInsets.fromLTRB(rem(1), rem(4), rem(1), rem(4)),
         child: Container(
 
           width: MediaQuery.of(context).size.width,
@@ -132,6 +132,7 @@ class _TabletContainer_4State extends State<TabletContainer_4> with TickerProvid
 
                 ],),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
@@ -149,6 +150,7 @@ class _TabletContainer_4State extends State<TabletContainer_4> with TickerProvid
                     ),
                   ),
                   Container(
+
                     width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -157,8 +159,37 @@ class _TabletContainer_4State extends State<TabletContainer_4> with TickerProvid
                         Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
                         ),
                         Text("Will",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
-                        Text("Branding",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.0), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+                        Text("Branding",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.0), color: Color.fromRGBO(0, 0, 0, 0.5)),),
+                        Container(height: rem(5),),
+                        Container(
+                          width: 164.66,
+                          height: 38.67,
+                          child: ElevatedButton(
 
+                            style:ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              surfaceTintColor: Colors.white,
+                              foregroundColor: Colors.white,
+                              shadowColor: Colors.transparent,
+                              padding: EdgeInsets.fromLTRB(rem(1), rem(0.25), rem(0.25), rem(0.25)),
+                              shape: RoundedRectangleBorder(side: BorderSide(
+                                  color: Colors.black,
+                                  width: 1,
+                                  style: BorderStyle.solid
+                              ), borderRadius: BorderRadius.circular(24)),
+
+                            )  ,
+                            onPressed: (){print("get in touch");}, child: Row(
+                            mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("More About us" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
+                              SizedBox(width: rem(0.5),),
+                              Container(
+                                  decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
+                                  child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
+                              )
+                            ],),),
+                        )
                       ],
                     ),
                   ),

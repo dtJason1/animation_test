@@ -7,12 +7,12 @@ import '../../Settings.dart';
 
 
 
-class Footer extends StatefulWidget{
+class TabletFooter extends StatefulWidget{
   @override
-  State<Footer> createState() => _FooterState();
+  State<TabletFooter> createState() => _TabletFooterState();
 }
 
-class _FooterState extends State<Footer> with TickerProviderStateMixin {
+class _TabletFooterState extends State<TabletFooter> with TickerProviderStateMixin {
   late AnimationController AnimationController_0;
 
   late AnimationController AnimationController_1;
@@ -60,14 +60,16 @@ class _FooterState extends State<Footer> with TickerProviderStateMixin {
       width: MediaQuery.of(context).size.width,
       color: Color.fromRGBO(0, 0, 0, 0.85),
       child: Padding(
-        padding: EdgeInsets.fromLTRB(rem(2), rem(3), rem(2), rem(1)),
+        padding: EdgeInsets.fromLTRB(rem(1), rem(3), rem(1), rem(1)),
         child: Container(
 
           child: Column(
 
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-                  Text("Together, we can create an experience as remarkable as your business", style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Colors.white),),
+                  Container(
+                      constraints: BoxConstraints(maxWidth: (MediaQuery.of(context).size.width - rem(1)*2)/8*3),
+                      child: Text("Together, we can create an experience as remarkable as your business", style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2), color: Colors.white),)),
                   Container(height: rem(2),),
                   ElevatedButton(
 
@@ -103,7 +105,7 @@ class _FooterState extends State<Footer> with TickerProviderStateMixin {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width/12*6),
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width/8*3),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -184,7 +186,7 @@ class _FooterState extends State<Footer> with TickerProviderStateMixin {
                       ],),
                   ),
                   Padding(
-                    padding:EdgeInsets.only(left: (MediaQuery.of(context).size.width-rem(2)*2)/12*2),
+                    padding:EdgeInsets.only(left: (MediaQuery.of(context).size.width-rem(2)*2)/8*1),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -271,8 +273,6 @@ class _FooterState extends State<Footer> with TickerProviderStateMixin {
 
                 ],
               )
-
-
 
 
             ],

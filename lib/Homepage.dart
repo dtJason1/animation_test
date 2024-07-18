@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:kenshin_clone/MainHompage/TabletContainers/TabletFooter.dart';
+import 'package:kenshin_clone/MainHompage/mobileContainers/MobileHeader.dart';
 import 'package:kenshin_clone/provider.dart';
 import 'CarouselGallery.dart';
 import 'package:kenshin_clone/FadeInDemo.dart';
@@ -18,7 +20,12 @@ import 'MainHompage/TabletContainers/tabletContainers_1.dart';
 import 'MainHompage/TabletContainers/TabletContainers_2.dart';
 import 'MainHompage/TabletContainers/TabletContainers_3.dart';
 import 'MainHompage/TabletContainers/TabletContainers_4.dart';
-
+import 'MainHompage/TabletContainers/TabletContainers_5.dart';
+import 'MainHompage/TabletContainers/TabletContainer_6.dart';
+import 'MainHompage/mobileContainers/MobileContainers_1.dart';
+import 'MainHompage/mobileContainers/MobileContainers_2.dart';
+import 'MainHompage/mobileContainers/MobileContainers_3.dart';
+import 'MainHompage/mobileContainers/MobileContainers_4.dart';
 class MainHomepage extends StatefulWidget{
   @override
   State<MainHomepage> createState() => _MainHomepageState();
@@ -127,17 +134,33 @@ class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMix
                    crossAxisAlignment: CrossAxisAlignment.start,
 
                    children: [
+                     myHeader(),
                      TabletContainer_1(),
                      TabletContainer_2(),
                      TabletContainer_3(),
-                     TabletContainer_4()
+                     TabletContainer_4(),
+                     TabletContainer_5(),
+                     TabletContainer_6(),
+                     TabletFooter()
 
                    ],
                  );
 
                }
                else{
-                 return Column();
+                 return Column(
+                   children: [
+                     mobileHeader(),
+                     MobileContainer_1(),
+                     MobileContainer_2(),
+                     MobileContainer_3(),
+                     MobileContainer_4()
+
+
+                   ],
+
+
+                 );
                }
              }
            ),

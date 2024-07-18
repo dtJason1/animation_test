@@ -7,13 +7,12 @@ import '../../provider.dart';
 import '../../FadeInDemo.dart';
 import '../../Settings.dart';
 
-
-class WebContainer_4 extends StatefulWidget{
+class MobileContainer_4 extends StatefulWidget{
   @override
-  State<WebContainer_4> createState() => _WebContainer_4State();
+  State<MobileContainer_4> createState() => _MobileContainer_4State();
 }
 
-class _WebContainer_4State extends State<WebContainer_4> with TickerProviderStateMixin {
+class _MobileContainer_4State extends State<MobileContainer_4> with TickerProviderStateMixin {
   late AnimationController AnimationController_0;
 
   late AnimationController AnimationController_1;
@@ -60,7 +59,7 @@ class _WebContainer_4State extends State<WebContainer_4> with TickerProviderStat
     return Container(
       color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(rem(2), rem(10), rem(2), rem(10)),
+        padding: EdgeInsets.fromLTRB(rem(1), rem(4), rem(1), rem(4)),
         child: Container(
 
           width: MediaQuery.of(context).size.width,
@@ -69,8 +68,8 @@ class _WebContainer_4State extends State<WebContainer_4> with TickerProviderStat
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
 
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ElevatedButton(
 
@@ -90,114 +89,78 @@ class _WebContainer_4State extends State<WebContainer_4> with TickerProviderStat
                     )  ,
                     onPressed: (){print("get in touch");}, child: Text("Work" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
                   Container(width: MediaQuery.of(context).size.width/12*3,),
-                  Container(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width/12*6,),
-                      child: Text("Our work lie in effectively implementing strategic plans to generate tangible business value",style: TextStyle(fontWeight: FontWeight.w500, fontSize: rem(3.5), ),)
+                  Container(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width,),
+                    child: Text("Our work lie in effectively implementing strategic plans to generate tangible business value",style: TextStyle(fontWeight: FontWeight.w500, fontSize: rem(2.2), ),)
                     ,
                   )
                 ],
               ),
               Container(height: rem(1), color: Colors.white,),
               Container(width: MediaQuery.of(context).size.width, height: 1, color: Colors.black,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                Container(
-                  width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      TranslateOnHover(child:
-                          Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
-                      ),
-                      Text("Duke",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
-                      Text("Brand Identity",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
-
-                    ],
-                  ),
-                ),
-                  Container(
-                    width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TranslateOnHover(child:
-                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
-                        ),
-                        Text("Saason",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
-                        Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
-
-                      ],
-                    ),
-                  ),
-
-
-              ],),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
+                    width: (MediaQuery.of(context).size.width),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Container(height: rem(1),),
                         TranslateOnHover(child:
-                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
+                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width) , height:(MediaQuery.of(context).size.width)/16*9,)
                         ),
-                        Text("Levi Colwill",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
-                        Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+                        Text("Duke",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
+                        Text("Brand Identity",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1), color: Color.fromRGBO(0, 0, 0, 0.5)),)
 
                       ],
                     ),
                   ),
                   Container(
-                    width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
+                    width: (MediaQuery.of(context).size.width),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TranslateOnHover(child:
-                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
+                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width) , height:(MediaQuery.of(context).size.width)/16*9,)
                         ),
-                        Text("Will",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
-                        Text("Branding",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),),
-                        Container(height: rem(5),),
+                        Text("Saason",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
+                        Text("Web designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1), color: Color.fromRGBO(0, 0, 0, 0.5)),)
 
-                        Container(
-                          width: 164.66,
-                          height: 38.67,
-                          child: ElevatedButton(
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: (MediaQuery.of(context).size.width),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TranslateOnHover(child:
+                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width) , height:(MediaQuery.of(context).size.width)/16*9,)
+                        ),
+                        Text("Levi Colwill",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
+                        Text("Web designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1), color: Color.fromRGBO(0, 0, 0, 0.5)),)
 
-                            style:ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              surfaceTintColor: Colors.white,
-                              foregroundColor: Colors.white,
-                              shadowColor: Colors.transparent,
-                              padding: EdgeInsets.fromLTRB(rem(1), rem(0.25), rem(0.25), rem(0.25)),
-                              shape: RoundedRectangleBorder(side: BorderSide(
-                                  color: Colors.black,
-                                  width: 1,
-                                  style: BorderStyle.solid
-                              ), borderRadius: BorderRadius.circular(24)),
-
-                            )  ,
-                            onPressed: (){print("get in touch");}, child: Row(
-                            mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("More About us" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
-                              SizedBox(width: rem(0.5),),
-                              Container(
-                                  decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
-                                  child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
-                              )
-                            ],),),
-                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: (MediaQuery.of(context).size.width),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TranslateOnHover(child:
+                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width) , height:(MediaQuery.of(context).size.width)/16*9,)
+                        ),
+                        Text("Will",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
+                        Text("Branding",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1), color: Color.fromRGBO(0, 0, 0, 0.5)),)
 
                       ],
                     ),
                   ),
 
 
-                ],)
+
+                ],),
 
 
             ],
