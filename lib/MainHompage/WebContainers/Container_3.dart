@@ -12,6 +12,8 @@ class WebContainer_3 extends StatefulWidget{
 }
 
 class _WebContainer_3State extends State<WebContainer_3> with TickerProviderStateMixin {
+  late AnimationController AnimationController_6;
+
   late AnimationController AnimationController_0;
 
   late AnimationController AnimationController_1;
@@ -23,6 +25,8 @@ class _WebContainer_3State extends State<WebContainer_3> with TickerProviderStat
 
   @override
   void initState(){
+    AnimationController_6 = AnimationController(vsync: this, duration: Duration(seconds: 1));
+
     AnimationController_0 = AnimationController(vsync: this, duration: Duration(seconds: 1));
 
     AnimationController_1 = AnimationController(vsync: this, duration: Duration(seconds: 1));
@@ -73,24 +77,29 @@ class _WebContainer_3State extends State<WebContainer_3> with TickerProviderStat
             crossAxisAlignment: CrossAxisAlignment.start  ,
 
             children: [
-              ElevatedButton(
-                style:ElevatedButton.styleFrom(
+              FadeInDemo(
+                controller: AnimationController_0,
+                child: ElevatedButton(
+                  style:ElevatedButton.styleFrom(
 
-                  backgroundColor: Colors.white,
-                  surfaceTintColor: Colors.white,
-                  foregroundColor: Colors.white,
-                  shadowColor: Colors.transparent,
-                  padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
-                  shape: RoundedRectangleBorder(side: BorderSide(
-                      color: Colors.black,
-                      width: 1,
-                      style: BorderStyle.solid
-                  ), borderRadius: BorderRadius.circular(24)),
+                    backgroundColor: Colors.white,
+                    surfaceTintColor: Colors.white,
+                    foregroundColor: Colors.white,
+                    shadowColor: Colors.transparent,
+                    padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
+                    shape: RoundedRectangleBorder(side: BorderSide(
+                        color: Colors.black,
+                        width: 1,
+                        style: BorderStyle.solid
+                    ), borderRadius: BorderRadius.circular(24)),
 
-                )  ,
-                onPressed: (){print("get in touch");}, child: Text("Services" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
+                  )  ,
+                  onPressed: (){print("get in touch");}, child: Text("Services" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
+              ),
               SizedBox(height: rem(1),),
-              Container(width: MediaQuery.of(context).size.width, height: 1,color: Colors.black,),
+              FadeInDemo(
+                  controller: AnimationController_0,
+                  child: Container(width: MediaQuery.of(context).size.width, height: 1,color: Colors.black,)),
               SizedBox(height: rem(3),),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -108,7 +117,7 @@ class _WebContainer_3State extends State<WebContainer_3> with TickerProviderStat
                         ),
                         Container(height: rem(1),),
                         Text("We create business value from strategy to perfect execution", softWrap: true, style: TextStyle(fontSize: rem(1.4), fontWeight: FontWeight.w400),)
-                    
+
                       ],
                     ),
                   )
