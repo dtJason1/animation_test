@@ -102,11 +102,12 @@ class _WebContainer_4State extends State<WebContainer_4> with TickerProviderStat
                         Container(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width/12*6,),
                             child: Text("Our work lie in effectively implementing strategic plans to generate tangible business value",style: TextStyle(fontWeight: FontWeight.w500, fontSize: rem(3.5), ),)
                           ,
-                        )
+                        ),
+                        Container(height: rem(1), color: Colors.white,),
+                        Container(width: MediaQuery.of(context).size.width, height: 1, color: Colors.black,),
                       ],
                     ),
-                    Container(height: rem(1), color: Colors.white,),
-                    Container(width: MediaQuery.of(context).size.width, height: 1, color: Colors.black,),
+
 
                   ],
                 ),
