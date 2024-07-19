@@ -37,17 +37,17 @@ class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStat
 
     var result = Provider.of<MyScrollPosition>(context);
     result.addListener(() {
-      if(result.scrollPosition > 400 && result.scrollPosition < 1500){
+      if((result.scrollPosition > 600 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1000 ) ){
         AnimationController_0.forward();
       }
 
-      if(result.scrollPosition > 600 && result.scrollPosition < 2000){
+      if((result.scrollPosition > 800 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1200 ) ){
         AnimationController_1.forward();
       }
-      if(result.scrollPosition > 800 && result.scrollPosition < 2500){
+      if((result.scrollPosition > 1000 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1400 ) ){
         AnimationController_2.forward();
       }
-      if(result.scrollPosition > 1000 && result.scrollPosition < 3000){
+      if((result.scrollPosition > 1200 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1600 ) ){
         AnimationController_3.forward();
       }
 

@@ -7,7 +7,16 @@ class MyScrollPosition with ChangeNotifier {
 
   double get scrollPosition => _scrollValue;
 
+  bool _isScrollDown = true;
+  bool get isScrollUp => _isScrollDown;
+
   void scrollPositionUpdate(double scrollVal) {
+    if(_scrollValue > scrollVal){
+      _isScrollDown = true;
+    }
+    if(_scrollValue < scrollVal){
+      _isScrollDown = false;
+    }
     _scrollValue = scrollVal;
     print(_scrollValue);
     notifyListeners();

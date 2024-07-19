@@ -43,25 +43,45 @@ class _WebContainer_3State extends State<WebContainer_3> with TickerProviderStat
   void didChangeDependencies(){
 
     var result = Provider.of<MyScrollPosition>(context);
-    if(result.scrollPosition > 1500 && result.scrollPosition < 1800){
-      AnimationController_0.forward();
-    }
+    result.addListener(() {
+      if((result.scrollPosition > 1600  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2000 )){
+        AnimationController_0.forward();
+      }
+      if((result.scrollPosition > 1800  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2200 )){
+        AnimationController_1.forward();
+      }
+      if((result.scrollPosition > 2000  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2400 )){
+        AnimationController_2.forward();
+      }
+      if((result.scrollPosition > 2200  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2600 )){
+        AnimationController_3.forward();
+      }
+      if((result.scrollPosition > 2400  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2800 )){
+        AnimationController_4.forward();
+      }
+      if((result.scrollPosition > 2600  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 3000 )){
+        AnimationController_5.forward();
+      }
+    });
 
-    if(result.scrollPosition > 1700 && result.scrollPosition < 2000){
-      AnimationController_1.forward();
-    }
-    if(result.scrollPosition > 1900 && result.scrollPosition < 2200){
-      AnimationController_2.forward();
-    }
-    if(result.scrollPosition > 2100 && result.scrollPosition < 2400){
-      AnimationController_3.forward();
-    }
-    if(result.scrollPosition > 2300 && result.scrollPosition < 2600){
-      AnimationController_4.forward();
-    }
-    if(result.scrollPosition > 2500 && result.scrollPosition < 2800){
-      AnimationController_5.forward();
-    }
+
+    // result.addListener(() {
+    //   if((result.scrollPosition > 600 && !result.isScrollDown) || (result.isScrollDown && result.scrollPosition < 1000 ) ){
+    //     AnimationController_0.forward();
+    //   }
+    //
+    //   if((result.scrollPosition > 800 && !result.isScrollDown) || (result.isScrollDown && result.scrollPosition < 1200 ) ){
+    //     AnimationController_1.forward();
+    //   }
+    //   if((result.scrollPosition > 1000 && !result.isScrollDown) || (result.isScrollDown && result.scrollPosition < 1400 ) ){
+    //     AnimationController_2.forward();
+    //   }
+    //   if((result.scrollPosition > 1200 && !result.isScrollDown) || (result.isScrollDown && result.scrollPosition < 1600 ) ){
+    //     AnimationController_3.forward();
+    //   }
+    //
+    // });
+
 
   }
   @override
