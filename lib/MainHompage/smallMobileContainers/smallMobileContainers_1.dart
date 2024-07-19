@@ -6,12 +6,12 @@ import '../../provider.dart';
 import '../../FadeInDemo.dart';
 import '../../CarouselGallery.dart';
 import '../../Settings.dart';
-class MobileContainer_1 extends StatefulWidget{
+class SmallMobileContainer_1 extends StatefulWidget{
   @override
-  State<MobileContainer_1> createState() => _MobileContainer_1State();
+  State<SmallMobileContainer_1> createState() => _SmallMobileContainer_1State();
 }
 
-class _MobileContainer_1State extends State<MobileContainer_1> with TickerProviderStateMixin {
+class _SmallMobileContainer_1State extends State<SmallMobileContainer_1> with TickerProviderStateMixin {
   late AnimationController AnimationController_0;
 
 
@@ -42,32 +42,33 @@ class _MobileContainer_1State extends State<MobileContainer_1> with TickerProvid
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(rem(2), rem(2),rem(2),0),
+            padding: EdgeInsets.fromLTRB(rem(0.75), rem(2),rem(0.75),rem(3)),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
 
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         LineAnimation(AnimationController_0),
                         Container(height: rem(1.5),),
                         Container(color: Colors.black, width: MediaQuery.of(context).size.width, height: 1,),
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(((MediaQuery.of(context).size.width -2*rem(2))/8*4),rem(2),0,rem(2)),
-                          child: Container(
+                        Container(height: MediaQuery.of(context).size.height/100*20,),
 
-                            constraints: BoxConstraints(maxWidth: (MediaQuery.of(context).size.width - 2*rem(2))/8*4),
-                            child: Text("Kenshin is a design studio based in Tokyo - works globally to create iconic brands experiences, with a particular emphasis on what is essential", style: TextStyle(fontSize: rem(1)),),),
-                        ),
+                        Container(
+
+                          child: Text("Kenshin is a design studio based in Tokyo - works globally to create iconic brands experiences, with a particular emphasis on what is essential", style: TextStyle(fontWeight: FontWeight.w400,fontSize: rem(1.4), height: 1.3),),),
 
                       ],
                     )),
 
 
-                CarouselGallery()
               ],
             ),
           ),
+          CarouselGallery()
+
         ],
       ),
     );

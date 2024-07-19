@@ -9,6 +9,7 @@ class MyScrollPosition with ChangeNotifier {
 
   void scrollPositionUpdate(double scrollVal) {
     _scrollValue = scrollVal;
+    print(_scrollValue);
     notifyListeners();
   }
 

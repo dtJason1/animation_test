@@ -4,6 +4,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kenshin_clone/MainHompage/TabletContainers/TabletFooter.dart';
 import 'package:kenshin_clone/MainHompage/mobileContainers/MobileHeader.dart';
+import 'package:kenshin_clone/MainHompage/smallMobileContainers/smallMobileFooter.dart';
+import 'package:kenshin_clone/MainHompage/smallMobileContainers/smallMobileHeader.dart';
+import 'package:kenshin_clone/MainHompage/smallMobileContainers/smallMobileContainers_3.dart';
 import 'package:kenshin_clone/provider.dart';
 import 'CarouselGallery.dart';
 import 'package:kenshin_clone/FadeInDemo.dart';
@@ -26,6 +29,15 @@ import 'MainHompage/mobileContainers/MobileContainers_1.dart';
 import 'MainHompage/mobileContainers/MobileContainers_2.dart';
 import 'MainHompage/mobileContainers/MobileContainers_3.dart';
 import 'MainHompage/mobileContainers/MobileContainers_4.dart';
+import 'MainHompage/mobileContainers/MobileContainers_5.dart';
+import 'MainHompage/mobileContainers/MobileContainers_6.dart';
+import 'MainHompage/mobileContainers/MobileFooter.dart';
+import 'MainHompage/smallMobileContainers/smallMobileContainers_1.dart';
+import 'MainHompage/smallMobileContainers/smallMobileContainers_2.dart';
+import 'MainHompage/smallMobileContainers/smallMobileContainers_4.dart';
+import 'MainHompage/smallMobileContainers/smallMobileContainers_5.dart';
+import 'MainHompage/smallMobileContainers/smallMobileContainers_6.dart';
+
 class MainHomepage extends StatefulWidget{
   @override
   State<MainHomepage> createState() => _MainHomepageState();
@@ -114,9 +126,7 @@ class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMix
 
                    children: [
                      myHeader(),
-
                      WebContainer_1(),
-
                      WebContainer_2(),
                      WebContainer_3(),
                      WebContainer_4(),
@@ -129,7 +139,7 @@ class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMix
                  );
 
                }
-               else if(MediaQuery.of(context).size.width < 1300 && MediaQuery.of(context).size.width > 700) {
+               else if(MediaQuery.of(context).size.width < 1300 && MediaQuery.of(context).size.width > 800) {
                  return Column(
                    crossAxisAlignment: CrossAxisAlignment.start,
 
@@ -147,20 +157,44 @@ class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMix
                  );
 
                }
-               else{
+               else if(MediaQuery.of(context).size.width < 800 && MediaQuery.of(context).size.width > 540){
                  return Column(
                    children: [
                      mobileHeader(),
                      MobileContainer_1(),
                      MobileContainer_2(),
                      MobileContainer_3(),
-                     MobileContainer_4()
+                     MobileContainer_4(),
+                     MobileContainer_5(),
+                     MobileContainer_6(),
+                     MobileFooter()
 
 
                    ],
 
 
                  );
+               }
+               else{
+                 return Column(
+                   children: [
+                     SmallMobileHeader(),
+                     SmallMobileContainer_1(),
+                     SmallMobileContainer_2(),
+                     SmallMobileContainer_3(),
+                     SmallMobileContainer_4(),
+                     SmallMobileContainer_5(),
+                     SmallMobileContainer_6(),
+                     SmallMobileFooter()
+
+
+
+
+
+                   ],
+
+                 );
+
                }
              }
            ),

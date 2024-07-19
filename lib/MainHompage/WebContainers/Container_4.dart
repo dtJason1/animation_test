@@ -39,21 +39,23 @@ class _WebContainer_4State extends State<WebContainer_4> with TickerProviderStat
   void didChangeDependencies(){
 
     var result = Provider.of<MyScrollPosition>(context);
-    if(result.scrollPosition > 500){
+    if(result.scrollPosition > 2500 && result.scrollPosition < 2800){
       AnimationController_0.forward();
     }
-    if(result.scrollPosition > 530){
+
+    if(result.scrollPosition > 1700 && result.scrollPosition < 2000){
       AnimationController_1.forward();
     }
-    if(result.scrollPosition > 560){
+    if(result.scrollPosition > 1900 && result.scrollPosition < 2200){
       AnimationController_2.forward();
     }
-    if(result.scrollPosition > 590){
+    if(result.scrollPosition > 2100 && result.scrollPosition < 2400){
       AnimationController_3.forward();
     }
-    if(result.scrollPosition > 620){
+    if(result.scrollPosition > 2300 && result.scrollPosition < 2600){
       AnimationController_4.forward();
     }
+
   }
   @override
   Widget build(BuildContext context){

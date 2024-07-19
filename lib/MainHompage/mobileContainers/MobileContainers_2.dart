@@ -225,31 +225,67 @@ class _MobileContainer_2State extends State<MobileContainer_2> with TickerProvid
                               child: Container(
                                 width:  (MediaQuery.of(context).size.width-32)/12*4,
 
-                                child: Row(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Container(width: 1, height: 130,  color: Colors.grey,),
-                                    Padding(
-                                      padding: EdgeInsets.only(left: rem(1.5)),
-                                      child: Container(
+                                    Row(
+                                      children: [
+                                        Container(width: 1, height: 130,  color: Colors.grey,),
+                                        Padding(
+                                          padding: EdgeInsets.only(left: rem(1.5)),
+                                          child: Container(
 
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisAlignment:  MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Row(
+                                            child: Column(
                                               crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: [Text("30", style: TextStyle(fontSize: rem(5)),),  Padding(
-                                                padding: EdgeInsets.all(8.0),
-                                                child: Text("(People)", style: TextStyle(fontSize: rem(1), fontWeight: FontWeight.w400), ),
-                                              )],),
-                                            Container(
-                                                width:  (MediaQuery.of(context).size.width-32)/12*4,
+                                              mainAxisAlignment:  MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Row(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [Text("30", style: TextStyle(fontSize: rem(5)),),  Padding(
+                                                    padding: EdgeInsets.all(8.0),
+                                                    child: Text("(People)", style: TextStyle(fontSize: rem(1), fontWeight: FontWeight.w400), ),
+                                                  )],),
+                                                Container(
+                                                    width:  (MediaQuery.of(context).size.width-32)/12*4,
 
-                                                child: Text("Talent on the team", softWrap: true, style: TextStyle(fontSize: rem(1) , color: Color.fromRGBO(0, 0, 0, 0.5)),))
-                                          ],
+                                                    child: Text("Talent on the team", softWrap: true, style: TextStyle(fontSize: rem(1) , color: Color.fromRGBO(0, 0, 0, 0.5)),))
+                                              ],
+                                            ),
+                                          ),
                                         ),
-                                      ),
+                                      ],
                                     ),
+                                    Container(height: rem(3),),
+                                    Container(
+                                      width: 164.66,
+                                      height: 38.67,
+                                      child: ElevatedButton(
+
+                                        style:ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.white,
+                                          surfaceTintColor: Colors.white,
+                                          foregroundColor: Colors.white,
+                                          shadowColor: Colors.transparent,
+                                          padding: EdgeInsets.fromLTRB(rem(1), rem(0.25), rem(0.25), rem(0.25)),
+                                          shape: RoundedRectangleBorder(side: BorderSide(
+                                              color: Colors.black,
+                                              width: 1,
+                                              style: BorderStyle.solid
+                                          ), borderRadius: BorderRadius.circular(24)),
+
+                                        )  ,
+                                        onPressed: (){print("get in touch");}, child: Row(
+                                        mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text("More About us" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
+                                          SizedBox(width: rem(0.5),),
+                                          Container(
+                                              decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
+                                              child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
+                                          )
+                                        ],),),
+                                    )
+
                                   ],
                                 ),
                               ),

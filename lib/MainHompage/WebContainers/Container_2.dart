@@ -36,21 +36,23 @@ class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStat
   void didChangeDependencies(){
 
     var result = Provider.of<MyScrollPosition>(context);
-    if(result.scrollPosition > 50){
-      AnimationController_0.forward();
-    }
-    if(result.scrollPosition > 100){
-      AnimationController_1.forward();
-    }
-    if(result.scrollPosition > 150){
-      AnimationController_2.forward();
-    }
-    if(result.scrollPosition > 200){
-      AnimationController_3.forward();
-    }
-    if(result.scrollPosition > 250){
-      AnimationController_4.forward();
-    }
+    result.addListener(() {
+      if(result.scrollPosition > 400 && result.scrollPosition < 1500){
+        AnimationController_0.forward();
+      }
+
+      if(result.scrollPosition > 600 && result.scrollPosition < 2000){
+        AnimationController_1.forward();
+      }
+      if(result.scrollPosition > 800 && result.scrollPosition < 2500){
+        AnimationController_2.forward();
+      }
+      if(result.scrollPosition > 1000 && result.scrollPosition < 3000){
+        AnimationController_3.forward();
+      }
+
+    });
+
   }
   @override
   Widget build(BuildContext context){
@@ -175,7 +177,7 @@ class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStat
                         ),
                       ),
                       FadeInDemo(
-                        controller: AnimationController_2,
+                        controller: AnimationController_3,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.end,

@@ -20,7 +20,7 @@ class _CarouselGalleryState extends State<CarouselGallery> with TickerProviderSt
 
     Future.delayed(Duration.zero, () {
       _translateAnimation =
-          Tween<Offset>(begin: Offset(-MediaQuery.of(context).size.width/1920*480*3, 0), end: Offset(-MediaQuery.of(context).size.width/1920*480*6-8*3, 0)).animate(_animationController);
+          Tween<Offset>(begin: Offset(-MediaQuery.of(context).size.width/100*27*3, 0), end: Offset(-MediaQuery.of(context).size.width/100*27*6-8*3, 0)).animate(_animationController);
     });
 
     _animationController.repeat();
@@ -28,7 +28,7 @@ class _CarouselGalleryState extends State<CarouselGallery> with TickerProviderSt
 
     _translateAnimation.addListener(() {
       _translateAnimation =
-          Tween<Offset>(begin: Offset(-MediaQuery.of(context).size.width/1920*480*3, 0), end: Offset(-MediaQuery.of(context).size.width/1920*480*6-8*3, 0)).animate(_animationController);
+          Tween<Offset>(begin: Offset(-MediaQuery.of(context).size.width/100*27*3, 0), end: Offset(-MediaQuery.of(context).size.width/100*27*6-8*3, 0)).animate(_animationController);
     });
   }
 
@@ -54,37 +54,82 @@ class _CarouselGalleryState extends State<CarouselGallery> with TickerProviderSt
                 Row(children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(width: MediaQuery.of(context).size.width/1920*480,height: 300,
-                    decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/macbook.png"),))
+                    child: Container(width: MediaQuery.of(context).size.width/100*27,height: MediaQuery.of(context).size.width/100*17,
+                    decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/macbook.png"),fit: BoxFit.fitHeight))
 
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(width: MediaQuery.of(context).size.width/1920*480,height: 300,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/surfacepro.png"),))
+                    child: Container(width: MediaQuery.of(context).size.width/100*27,height: MediaQuery.of(context).size.width/100*17,
+                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/surfacepro.png"),fit: BoxFit.fitHeight))
 
                     ),
                   ),
 
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(width: MediaQuery.of(context).size.width/1920*480,height: 300,
+                    child: Container(width: MediaQuery.of(context).size.width/100*27,height: MediaQuery.of(context).size.width/100*17,
+                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/bezos.jpg"),fit: BoxFit.fitHeight) )
+
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Container(width: MediaQuery.of(context).size.width/100*27,height: MediaQuery.of(context).size.width/100*17,
+                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/macbook.png"),fit: BoxFit.fitHeight))
+
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Container(width: MediaQuery.of(context).size.width/100*27,height: MediaQuery.of(context).size.width/100*17,
+                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/surfacepro.png"),fit: BoxFit.fitHeight))
+
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Container(width: MediaQuery.of(context).size.width/100*27,height: MediaQuery.of(context).size.width/100*17,
+                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/bezos.jpg"),fit: BoxFit.fitHeight))
+
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Container(width: MediaQuery.of(context).size.width/100*27,height: MediaQuery.of(context).size.width/100*17,
+                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/macbook.png"),fit: BoxFit.fitHeight))
+
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Container(width: MediaQuery.of(context).size.width/100*27,height: MediaQuery.of(context).size.width/100*17,
+                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/surfacepro.png"),fit: BoxFit.fitHeight))
+
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Container(width: MediaQuery.of(context).size.width/100*27,height: MediaQuery.of(context).size.width/100*17,
                         decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/bezos.jpg"),))
 
                     ),
                   ),
-
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(width: MediaQuery.of(context).size.width/1920*480,height: 300,
+                    child: Container(width: MediaQuery.of(context).size.width/100*27,height: MediaQuery.of(context).size.width/100*17,
                         decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/macbook.png"),))
 
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(width: MediaQuery.of(context).size.width/1920*480,height: 300,
+                    child: Container(width: MediaQuery.of(context).size.width/100*27,height: MediaQuery.of(context).size.width/100*17,
                         decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/surfacepro.png"),))
 
                     ),
@@ -92,52 +137,7 @@ class _CarouselGalleryState extends State<CarouselGallery> with TickerProviderSt
 
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(width: MediaQuery.of(context).size.width/1920*480,height: 300,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/bezos.jpg"),))
-
-                    ),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(width: MediaQuery.of(context).size.width/1920*480,height: 300,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/macbook.png"),))
-
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(width: MediaQuery.of(context).size.width/1920*480,height: 300,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/surfacepro.png"),))
-
-                    ),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(width: MediaQuery.of(context).size.width/1920*480,height: 300,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/bezos.jpg"),))
-
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(width: MediaQuery.of(context).size.width/1920*480,height: 300,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/macbook.png"),))
-
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(width: MediaQuery.of(context).size.width/1920*480,height: 300,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/surfacepro.png"),))
-
-                    ),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(width: MediaQuery.of(context).size.width/1920*480,height: 300,
+                    child: Container(width: MediaQuery.of(context).size.width/100*27,height: MediaQuery.of(context).size.width/100*17,
                         decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/bezos.jpg"),))
 
                     ),
