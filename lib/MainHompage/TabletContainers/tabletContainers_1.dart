@@ -29,7 +29,7 @@ class _TabletContainer_1State extends State<TabletContainer_1> with TickerProvid
   @override
   void didChangeDependencies(){
 
-    var result = Provider.of<MyScrollPosition>(context);
+    var result = Provider.of<MyScrollPosition>(context, listen: false);
     if(result.scrollPosition >= 0){
       AnimationController_0.forward();
     }
@@ -65,10 +65,11 @@ class _TabletContainer_1State extends State<TabletContainer_1> with TickerProvid
 
                 Container(height: rem(8),),
 
-                CarouselGallery()
               ],
             ),
           ),
+          CarouselGallery()
+
         ],
       ),
     );

@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
-class CarouselGallery extends StatefulWidget {
-  _CarouselGalleryState createState() => _CarouselGalleryState();
+class TabletCarouselGallery extends StatefulWidget {
+  _TabletCarouselGalleryState createState() => _TabletCarouselGalleryState();
 }
 
-class _CarouselGalleryState extends State<CarouselGallery> with TickerProviderStateMixin {
+class _TabletCarouselGalleryState extends State<TabletCarouselGallery> with TickerProviderStateMixin {
   List<Widget> child = [];
   bool add = true;
   late AnimationController _animationController;
@@ -18,22 +18,20 @@ class _CarouselGalleryState extends State<CarouselGallery> with TickerProviderSt
     _animationController =  AnimationController(duration: const Duration(seconds:7), vsync: this,);
     _translateAnimation = Tween<Offset>(begin: Offset(0, 0), end: Offset(0,0)).animate(_animationController);
 
+    Future.delayed(Duration.zero, () {
+      _translateAnimation =
+          Tween<Offset>(begin: Offset(-MediaQuery.of(context).size.width/100*27*3, 0), end: Offset(-MediaQuery.of(context).size.width/100*27*6-8*3, 0)).animate(_animationController);
+    });
 
     _animationController.repeat();
 
-    //
-    // _translateAnimation.addListener(() {
-    //   _translateAnimation =
-    //       Tween<Offset>(begin: Offset(-MediaQuery.of(context).size.width/100*27*3, 0), end: Offset(-MediaQuery.of(context).size.width/100*27*6-8*3, 0)).animate(_animationController);
-    // });
+
+    _translateAnimation.addListener(() {
+      _translateAnimation =
+          Tween<Offset>(begin: Offset(-MediaQuery.of(context).size.width/100*27*3, 0), end: Offset(-MediaQuery.of(context).size.width/100*27*6-8*3, 0)).animate(_animationController);
+    });
   }
-  @override
-  void didChangeDependencies(){
 
-    _translateAnimation=  Tween<Offset>(begin: Offset(-MediaQuery.of(context).size.width/100*27*3, 0), end: Offset(-MediaQuery.of(context).size.width/100*27*6-8*3, 0)).animate(_animationController);
-
-
-  }
 
   @override
   void dispose(){

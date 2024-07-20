@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kenshin_clone/Homepage.dart';
 import 'package:provider/provider.dart';
 import '../../provider.dart';
 import '../../FadeInDemo.dart';
@@ -36,21 +35,23 @@ class _TabletContainer_2State extends State<TabletContainer_2> with TickerProvid
   void didChangeDependencies(){
 
     var result = Provider.of<MyScrollPosition>(context);
-    if(result.scrollPosition > 50){
-      AnimationController_0.forward();
-    }
-    if(result.scrollPosition > 100){
-      AnimationController_1.forward();
-    }
-    if(result.scrollPosition > 150){
-      AnimationController_2.forward();
-    }
-    if(result.scrollPosition > 200){
-      AnimationController_3.forward();
-    }
-    if(result.scrollPosition > 250){
-      AnimationController_4.forward();
-    }
+    result.addListener(() {
+      if((result.scrollPosition > 600 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1000 ) ){
+        AnimationController_0.forward();
+      }
+
+      if((result.scrollPosition > 800 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1200 ) ){
+        AnimationController_1.forward();
+      }
+      if((result.scrollPosition > 1000 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1400 ) ){
+        AnimationController_2.forward();
+      }
+      if((result.scrollPosition > 1200 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1600 ) ){
+        AnimationController_3.forward();
+      }
+
+    });
+
   }
   @override
   Widget build(BuildContext context){
@@ -90,6 +91,8 @@ class _TabletContainer_2State extends State<TabletContainer_2> with TickerProvid
                       ],
                     ),
                   ),
+
+
                   FadeInDemo(
                     controller: AnimationController_1,
                     child: Padding(
@@ -174,7 +177,7 @@ class _TabletContainer_2State extends State<TabletContainer_2> with TickerProvid
                     ),
                   ),
                   FadeInDemo(
-                    controller: AnimationController_2,
+                    controller: AnimationController_3,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -245,34 +248,37 @@ class _TabletContainer_2State extends State<TabletContainer_2> with TickerProvid
                     ),
                   ),
                   Container(height: rem(3),),
-                  Container(
-                    width: 164.66,
-                    height: 38.67,
-                    child: ElevatedButton(
+                  FadeInDemo(
+                    controller: AnimationController_3,
+                    child: Container(
+                      width: 164.66,
+                      height: 38.67,
+                      child: ElevatedButton(
 
-                      style:ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        surfaceTintColor: Colors.white,
-                        foregroundColor: Colors.white,
-                        shadowColor: Colors.transparent,
-                        padding: EdgeInsets.fromLTRB(rem(1), rem(0.25), rem(0.25), rem(0.25)),
-                        shape: RoundedRectangleBorder(side: BorderSide(
-                            color: Colors.black,
-                            width: 1,
-                            style: BorderStyle.solid
-                        ), borderRadius: BorderRadius.circular(24)),
+                        style:ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          surfaceTintColor: Colors.white,
+                          foregroundColor: Colors.white,
+                          shadowColor: Colors.transparent,
+                          padding: EdgeInsets.fromLTRB(rem(1), rem(0.25), rem(0.25), rem(0.25)),
+                          shape: RoundedRectangleBorder(side: BorderSide(
+                              color: Colors.black,
+                              width: 1,
+                              style: BorderStyle.solid
+                          ), borderRadius: BorderRadius.circular(24)),
 
-                      )  ,
-                      onPressed: (){print("get in touch");}, child: Row(
-                      mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("More About us" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
-                        SizedBox(width: rem(0.5),),
-                        Container(
-                            decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
-                            child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
-                        )
-                      ],),),
+                        )  ,
+                        onPressed: (){print("get in touch");}, child: Row(
+                        mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("More About us" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
+                          SizedBox(width: rem(0.5),),
+                          Container(
+                              decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
+                              child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
+                          )
+                        ],),),
+                    ),
                   )
                 ],
               )

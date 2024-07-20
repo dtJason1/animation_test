@@ -59,7 +59,7 @@ class _WebContainer_5State extends State<WebContainer_5> with TickerProviderStat
     return Container(
       color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(0, rem(10), 0, rem(10)),
+        padding: EdgeInsets.fromLTRB(0, rem(10), 0, 0),
         child: Container(
 
           width: MediaQuery.of(context).size.width,

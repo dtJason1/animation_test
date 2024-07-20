@@ -36,7 +36,7 @@ class _WebContainer_1State extends State<WebContainer_1> with TickerProviderStat
   @override
   void didChangeDependencies(){
 
-    var result = Provider.of<MyScrollPosition>(context);
+    var result = Provider.of<MyScrollPosition>(context, listen: false);
     if(result.scrollPosition >= 0){
       AnimationController_0.forward();
     }
@@ -72,10 +72,11 @@ class _WebContainer_1State extends State<WebContainer_1> with TickerProviderStat
 
                 Container(height: rem(8),),
 
-                CarouselGallery()
               ],
             ),
           ),
+          CarouselGallery()
+
         ],
       ),
     );

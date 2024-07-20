@@ -18,7 +18,7 @@ class MyScrollPosition with ChangeNotifier {
       _isScrollDown = false;
     }
     _scrollValue = scrollVal;
-    print(_scrollValue);
+    print("_scorllvalue : $_scrollValue,  isScrollup: $_isScrollDown" );
     notifyListeners();
   }
 

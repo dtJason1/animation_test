@@ -39,21 +39,24 @@ class _SmallMobileContainer_6State extends State<SmallMobileContainer_6> with Ti
   void didChangeDependencies(){
 
     var result = Provider.of<MyScrollPosition>(context);
-    if(result.scrollPosition > 500){
-      AnimationController_0.forward();
-    }
-    if(result.scrollPosition > 530){
-      AnimationController_1.forward();
-    }
-    if(result.scrollPosition > 560){
-      AnimationController_2.forward();
-    }
-    if(result.scrollPosition > 590){
-      AnimationController_3.forward();
-    }
-    if(result.scrollPosition > 620){
-      AnimationController_4.forward();
-    }
+    result.addListener(() {
+      if((result.scrollPosition > 4000  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2000 )){
+        AnimationController_0.forward();
+      }
+      if((result.scrollPosition > 4200  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2200 )){
+        AnimationController_1.forward();
+      }
+      if((result.scrollPosition > 4500  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2400 )){
+        AnimationController_2.forward();
+      }
+      if((result.scrollPosition > 4700  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2600 )){
+        AnimationController_3.forward();
+      }
+      if((result.scrollPosition > 4800  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2800 )){
+        AnimationController_4.forward();
+      }
+
+    });
   }
   @override
   Widget build(BuildContext context){
@@ -68,35 +71,43 @@ class _SmallMobileContainer_6State extends State<SmallMobileContainer_6> with Ti
 
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ElevatedButton(
+              FadeInDemo(
+                controller: AnimationController_0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ElevatedButton(
 
-                    style:ElevatedButton.styleFrom(
+                          style:ElevatedButton.styleFrom(
 
-                      backgroundColor: Colors.white,
-                      surfaceTintColor: Colors.white,
-                      foregroundColor: Colors.white,
-                      shadowColor: Colors.transparent,
-                      padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
-                      shape: RoundedRectangleBorder(side: BorderSide(
-                          color: Colors.black,
-                          width: 1,
-                          style: BorderStyle.solid
-                      ), borderRadius: BorderRadius.circular(24)),
+                            backgroundColor: Colors.white,
+                            surfaceTintColor: Colors.white,
+                            foregroundColor: Colors.white,
+                            shadowColor: Colors.transparent,
+                            padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
+                            shape: RoundedRectangleBorder(side: BorderSide(
+                                color: Colors.black,
+                                width: 1,
+                                style: BorderStyle.solid
+                            ), borderRadius: BorderRadius.circular(24)),
 
-                    )  ,
-                    onPressed: (){print("get in touch");}, child: Text("TESTIMONIAL" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
-                  Container(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width,),
-                    child: Text("We help you avoid looking like the rest of them",style: TextStyle(fontWeight: FontWeight.w500, fontSize: rem(1.5), ),)
-                    ,
-                  )
-                ],
+                          )  ,
+                          onPressed: (){print("get in touch");}, child: Text("TESTIMONIAL" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
+                        Container(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width,),
+                          child: Text("We help you avoid looking like the rest of them",style: TextStyle(fontWeight: FontWeight.w500, fontSize: rem(1.5), ),)
+                          ,
+                        )
+                      ],
+                    ),
+                    Container(height: rem(1), color: Colors.white,),
+                    Container(width: MediaQuery.of(context).size.width, height: 1, color: Colors.black,),
+                    Container(height: rem(3), color: Colors.white,),
+                  ],
+                ),
               ),
-              Container(height: rem(1), color: Colors.white,),
-              Container(width: MediaQuery.of(context).size.width, height: 1, color: Colors.black,),
-              Container(height: rem(3), color: Colors.white,),
 
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,56 +116,68 @@ class _SmallMobileContainer_6State extends State<SmallMobileContainer_6> with Ti
                 children: [
 
                   Container(width: rem(1.5),),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset("assets/images/Human_face.png", width: 72, height: 72,),
-                      Container(width: rem(1.5), height: rem(1.5),),
-                      Container(
-                        constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width- rem(1)*2 ),
-                        child: Text("Working with Kenshin Studio was an absolute delight! They listened to our requirements and turned our vision into a stunning reality. The attention to detail and creativity in their designs truly set them apart. We couldn't be happier with the outcome", softWrap:true, style:  TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2),height: 1.2)),),
-                      Container(height: rem(1),),
-                      Container(child: Text("Chandler Riggs",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1)),),),
-                      Container(child: Text("CEO of Relix",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1), color: Color.fromRGBO(0, 0, 0, 0.5)),),)
+                  FadeInDemo(
+                    controller: AnimationController_1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset("assets/images/Human_face.png", width: 72, height: 72,),
+                        Container(width: rem(1.5), height: rem(1.5),),
+                        Container(
+                          constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width- rem(1)*2 ),
+                          child: Text("Working with Kenshin Studio was an absolute delight! They listened to our requirements and turned our vision into a stunning reality. The attention to detail and creativity in their designs truly set them apart. We couldn't be happier with the outcome", softWrap:true, style:  TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2),height: 1.2)),),
+                        Container(height: rem(1),),
+                        Container(child: Text("Chandler Riggs",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1)),),),
+                        Container(child: Text("CEO of Relix",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1), color: Color.fromRGBO(0, 0, 0, 0.5)),),)
 
-                    ],
+                      ],
+                    ),
                   ),
                   Container(height: rem(3),),
                   Column(
                     children: [
-                      Row(
-                        children: [
-                        Container(height: MediaQuery.of(context).size.width/100*12, width: (MediaQuery.of(context).size.width- rem(1)*4)/2, color: Color.fromRGBO(245, 245, 245, 1),
-                          child:  Image.asset("assets/images/logo.png"),),
-                        Container(width: rem(1),),
+                      FadeInDemo(
+                        controller: AnimationController_2,
+                        child: Row(
+                          children: [
+                          Container(height: MediaQuery.of(context).size.width/100*12, width: (MediaQuery.of(context).size.width- rem(1)*4)/2, color: Color.fromRGBO(245, 245, 245, 1),
+                            child:  Image.asset("assets/images/logo.png"),),
+                          Container(width: rem(1),),
 
-                        Container(height: MediaQuery.of(context).size.width/100*12, width: (MediaQuery.of(context).size.width- rem(1)*4)/2, color: Color.fromRGBO(245, 245, 245, 1),
-                          child:  Image.asset("assets/images/logo.png"),),
+                          Container(height: MediaQuery.of(context).size.width/100*12, width: (MediaQuery.of(context).size.width- rem(1)*4)/2, color: Color.fromRGBO(245, 245, 245, 1),
+                            child:  Image.asset("assets/images/logo.png"),),
 
 
-                      ],),
+                        ],),
+                      ),
                       Container(height: rem(1),),
-                      Row(children: [
-                        Container(height: MediaQuery.of(context).size.width/100*12, width: (MediaQuery.of(context).size.width- rem(1)*4)/2, color: Color.fromRGBO(245, 245, 245, 1),
-                          child:  Image.asset("assets/images/logo.png"),),
-                        Container(width: rem(1),),
-                        Container(height: MediaQuery.of(context).size.width/100*12, width: (MediaQuery.of(context).size.width- rem(1)*4)/2, color: Color.fromRGBO(245, 245, 245, 1),
-                          child:  Image.asset("assets/images/logo.png"),),
+                      FadeInDemo(
+                        controller: AnimationController_3,
+                        child: Row(children: [
+                          Container(height: MediaQuery.of(context).size.width/100*12, width: (MediaQuery.of(context).size.width- rem(1)*4)/2, color: Color.fromRGBO(245, 245, 245, 1),
+                            child:  Image.asset("assets/images/logo.png"),),
+                          Container(width: rem(1),),
+                          Container(height: MediaQuery.of(context).size.width/100*12, width: (MediaQuery.of(context).size.width- rem(1)*4)/2, color: Color.fromRGBO(245, 245, 245, 1),
+                            child:  Image.asset("assets/images/logo.png"),),
 
 
-                      ],),
+                        ],),
+                      ),
                       Container(height: rem(1),),
 
-                      Row(children: [
-                        Container(height: MediaQuery.of(context).size.width/100*12, width: (MediaQuery.of(context).size.width- rem(1)*4)/2, color: Color.fromRGBO(245, 245, 245, 1),
-                          child:  Image.asset("assets/images/logo.png"),),
-                        Container(width: rem(1),),
+                      FadeInDemo(
+                        controller: AnimationController_4,
+                        child: Row(children: [
+                          Container(height: MediaQuery.of(context).size.width/100*12, width: (MediaQuery.of(context).size.width- rem(1)*4)/2, color: Color.fromRGBO(245, 245, 245, 1),
+                            child:  Image.asset("assets/images/logo.png"),),
+                          Container(width: rem(1),),
 
-                        Container(height: MediaQuery.of(context).size.width/100*12, width: (MediaQuery.of(context).size.width- rem(1)*4)/2, color: Color.fromRGBO(245, 245, 245, 1),
-                          child:  Image.asset("assets/images/logo.png"),),
+                          Container(height: MediaQuery.of(context).size.width/100*12, width: (MediaQuery.of(context).size.width- rem(1)*4)/2, color: Color.fromRGBO(245, 245, 245, 1),
+                            child:  Image.asset("assets/images/logo.png"),),
 
 
-                      ],),
+                        ],),
+                      ),
 
                     ],
                   )

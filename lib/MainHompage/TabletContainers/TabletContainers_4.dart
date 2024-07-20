@@ -38,21 +38,23 @@ class _TabletContainer_4State extends State<TabletContainer_4> with TickerProvid
   void didChangeDependencies(){
 
     var result = Provider.of<MyScrollPosition>(context);
-    if(result.scrollPosition > 500){
-      AnimationController_0.forward();
-    }
-    if(result.scrollPosition > 530){
-      AnimationController_1.forward();
-    }
-    if(result.scrollPosition > 560){
-      AnimationController_2.forward();
-    }
-    if(result.scrollPosition > 590){
-      AnimationController_3.forward();
-    }
-    if(result.scrollPosition > 620){
-      AnimationController_4.forward();
-    }
+    result.addListener(() {
+      print(result.scrollPosition);
+      if((result.scrollPosition > 2900  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 4400 )){
+        AnimationController_0.forward();
+      }
+
+      if((result.scrollPosition > 3100  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 5000 )){
+        AnimationController_1.forward();
+      }
+      if((result.scrollPosition > 3300  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 5500 )){
+        AnimationController_2.forward();
+      }
+
+
+
+    });
+
   }
   @override
   Widget build(BuildContext context){
@@ -68,134 +70,148 @@ class _TabletContainer_4State extends State<TabletContainer_4> with TickerProvid
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
 
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  ElevatedButton(
-
-                    style:ElevatedButton.styleFrom(
-
-                      backgroundColor: Colors.white,
-                      surfaceTintColor: Colors.white,
-                      foregroundColor: Colors.white,
-                      shadowColor: Colors.transparent,
-                      padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
-                      shape: RoundedRectangleBorder(side: BorderSide(
-                          color: Colors.black,
-                          width: 1,
-                          style: BorderStyle.solid
-                      ), borderRadius: BorderRadius.circular(24)),
-
-                    )  ,
-                    onPressed: (){print("get in touch");}, child: Text("Work" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
-                  Container(width: MediaQuery.of(context).size.width/12*3,),
-                  Container(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width/12*6,),
-                    child: Text("Our work lie in effectively implementing strategic plans to generate tangible business value",style: TextStyle(fontWeight: FontWeight.w500, fontSize: rem(2.2), ),)
-                    ,
-                  )
-                ],
-              ),
-              Container(height: rem(1), color: Colors.white,),
-              Container(width: MediaQuery.of(context).size.width, height: 1, color: Colors.black,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+              FadeInDemo(
+                controller: AnimationController_0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        TranslateOnHover(child:
-                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
-                        ),
-                        Text("Duke",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
-                        Text("Brand Identity",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+                        ElevatedButton(
 
-                      ],
-                    ),
-                  ),
-                  Container(
-                    width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TranslateOnHover(child:
-                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
-                        ),
-                        Text("Saason",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
-                        Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.0), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+                          style:ElevatedButton.styleFrom(
 
-                      ],
-                    ),
-                  ),
+                            backgroundColor: Colors.white,
+                            surfaceTintColor: Colors.white,
+                            foregroundColor: Colors.white,
+                            shadowColor: Colors.transparent,
+                            padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
+                            shape: RoundedRectangleBorder(side: BorderSide(
+                                color: Colors.black,
+                                width: 1,
+                                style: BorderStyle.solid
+                            ), borderRadius: BorderRadius.circular(24)),
 
-
-                ],),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TranslateOnHover(child:
-                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
-                        ),
-                        Text("Levi Colwill",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
-                        Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.0), color: Color.fromRGBO(0, 0, 0, 0.5)),)
-
-                      ],
-                    ),
-                  ),
-                  Container(
-
-                    width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TranslateOnHover(child:
-                        Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
-                        ),
-                        Text("Will",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
-                        Text("Branding",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.0), color: Color.fromRGBO(0, 0, 0, 0.5)),),
-                        Container(height: rem(5),),
-                        Container(
-                          width: 164.66,
-                          height: 38.67,
-                          child: ElevatedButton(
-
-                            style:ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              surfaceTintColor: Colors.white,
-                              foregroundColor: Colors.white,
-                              shadowColor: Colors.transparent,
-                              padding: EdgeInsets.fromLTRB(rem(1), rem(0.25), rem(0.25), rem(0.25)),
-                              shape: RoundedRectangleBorder(side: BorderSide(
-                                  color: Colors.black,
-                                  width: 1,
-                                  style: BorderStyle.solid
-                              ), borderRadius: BorderRadius.circular(24)),
-
-                            )  ,
-                            onPressed: (){print("get in touch");}, child: Row(
-                            mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("More About us" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
-                              SizedBox(width: rem(0.5),),
-                              Container(
-                                  decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
-                                  child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
-                              )
-                            ],),),
+                          )  ,
+                          onPressed: (){print("get in touch");}, child: Text("Work" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
+                        Container(width: MediaQuery.of(context).size.width/12*3,),
+                        Container(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width/12*6,),
+                          child: Text("Our work lie in effectively implementing strategic plans to generate tangible business value",style: TextStyle(fontWeight: FontWeight.w500, fontSize: rem(2.2), ),)
+                          ,
                         )
                       ],
                     ),
-                  ),
+                    Container(height: rem(1), color: Colors.white,),
+                    Container(width: MediaQuery.of(context).size.width, height: 1, color: Colors.black,),
+                  ],
+                ),
+              ),
+              FadeInDemo(
+                controller: AnimationController_1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TranslateOnHover(child:
+                          Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
+                          ),
+                          Text("Duke",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
+                          Text("Brand Identity",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TranslateOnHover(child:
+                          Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
+                          ),
+                          Text("Saason",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
+                          Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.0), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+
+                        ],
+                      ),
+                    ),
 
 
-                ],)
+                  ],),
+              ),
+              FadeInDemo(
+                controller: AnimationController_2,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TranslateOnHover(child:
+                          Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
+                          ),
+                          Text("Levi Colwill",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
+                          Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.0), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+
+                        ],
+                      ),
+                    ),
+                    Container(
+
+                      width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TranslateOnHover(child:
+                          Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
+                          ),
+                          Text("Will",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.2)),),
+                          Text("Branding",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.0), color: Color.fromRGBO(0, 0, 0, 0.5)),),
+                          Container(height: rem(5),),
+                          Container(
+                            width: 164.66,
+                            height: 38.67,
+                            child: ElevatedButton(
+
+                              style:ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                surfaceTintColor: Colors.white,
+                                foregroundColor: Colors.white,
+                                shadowColor: Colors.transparent,
+                                padding: EdgeInsets.fromLTRB(rem(1), rem(0.25), rem(0.25), rem(0.25)),
+                                shape: RoundedRectangleBorder(side: BorderSide(
+                                    color: Colors.black,
+                                    width: 1,
+                                    style: BorderStyle.solid
+                                ), borderRadius: BorderRadius.circular(24)),
+
+                              )  ,
+                              onPressed: (){print("get in touch");}, child: Row(
+                              mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("More About us" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
+                                SizedBox(width: rem(0.5),),
+                                Container(
+                                    decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
+                                    child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
+                                )
+                              ],),),
+                          )
+                        ],
+                      ),
+                    ),
+
+
+                  ],),
+              )
 
 
             ],

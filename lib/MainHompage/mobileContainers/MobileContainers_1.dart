@@ -64,10 +64,12 @@ class _MobileContainer_1State extends State<MobileContainer_1> with TickerProvid
                     )),
 
 
-                CarouselGallery()
               ],
             ),
           ),
+          CarouselGallery()
+
+
         ],
       ),
     );

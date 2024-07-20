@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:kenshin_clone/Homepage.dart';
 import 'package:provider/provider.dart';
 import '../../provider.dart';
@@ -36,21 +37,22 @@ class _MobileContainer_2State extends State<MobileContainer_2> with TickerProvid
   void didChangeDependencies(){
 
     var result = Provider.of<MyScrollPosition>(context);
-    if(result.scrollPosition > 50){
-      AnimationController_0.forward();
-    }
-    if(result.scrollPosition > 100){
-      AnimationController_1.forward();
-    }
-    if(result.scrollPosition > 150){
-      AnimationController_2.forward();
-    }
-    if(result.scrollPosition > 200){
-      AnimationController_3.forward();
-    }
-    if(result.scrollPosition > 250){
-      AnimationController_4.forward();
-    }
+    result.addListener(() {
+      if((result.scrollPosition > 300 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1000 ) ){
+        AnimationController_0.forward();
+      }
+
+      if((result.scrollPosition > 400 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1200 ) ){
+        AnimationController_1.forward();
+      }
+      if((result.scrollPosition > 500 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1400 ) ){
+        AnimationController_2.forward();
+      }
+      if((result.scrollPosition > 600 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1600 ) ){
+        AnimationController_3.forward();
+      }
+
+    });
   }
   @override
   Widget build(BuildContext context){
@@ -144,7 +146,7 @@ class _MobileContainer_2State extends State<MobileContainer_2> with TickerProvid
                             Expanded(
                               child: Container(
                                 width:  (MediaQuery.of(context).size.width-32)/12*4,
-                              
+
                                 child: Row(
                                   children: [
                                     Container(width: 1, height: 130,  color: Colors.grey,),
@@ -185,8 +187,10 @@ class _MobileContainer_2State extends State<MobileContainer_2> with TickerProvid
                       child:
 
                       FadeInDemo(
-                        controller: AnimationController_2,
+                        controller: AnimationController_3,
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
                               child: Container(
@@ -209,7 +213,7 @@ class _MobileContainer_2State extends State<MobileContainer_2> with TickerProvid
                                               )],),
                                             Container(
                                                 width:  (MediaQuery.of(context).size.width-32)/12*4,
-
+                              
                                                 child: Text("With satisfaction from customer", softWrap: true,  style: TextStyle(fontSize: rem(1) , color: Color.fromRGBO(0, 0, 0, 0.5)),))
                                           ],
                                         ),
@@ -224,7 +228,7 @@ class _MobileContainer_2State extends State<MobileContainer_2> with TickerProvid
                             Expanded(
                               child: Container(
                                 width:  (MediaQuery.of(context).size.width-32)/12*4,
-
+                              
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -234,7 +238,7 @@ class _MobileContainer_2State extends State<MobileContainer_2> with TickerProvid
                                         Padding(
                                           padding: EdgeInsets.only(left: rem(1.5)),
                                           child: Container(
-
+                              
                                             child: Column(
                                               crossAxisAlignment: CrossAxisAlignment.start,
                                               mainAxisAlignment:  MainAxisAlignment.spaceBetween,
@@ -247,7 +251,7 @@ class _MobileContainer_2State extends State<MobileContainer_2> with TickerProvid
                                                   )],),
                                                 Container(
                                                     width:  (MediaQuery.of(context).size.width-32)/12*4,
-
+                              
                                                     child: Text("Talent on the team", softWrap: true, style: TextStyle(fontSize: rem(1) , color: Color.fromRGBO(0, 0, 0, 0.5)),))
                                               ],
                                             ),
@@ -260,7 +264,7 @@ class _MobileContainer_2State extends State<MobileContainer_2> with TickerProvid
                                       width: 164.66,
                                       height: 38.67,
                                       child: ElevatedButton(
-
+                              
                                         style:ElevatedButton.styleFrom(
                                           backgroundColor: Colors.white,
                                           surfaceTintColor: Colors.white,
@@ -272,7 +276,7 @@ class _MobileContainer_2State extends State<MobileContainer_2> with TickerProvid
                                               width: 1,
                                               style: BorderStyle.solid
                                           ), borderRadius: BorderRadius.circular(24)),
-
+                              
                                         )  ,
                                         onPressed: (){print("get in touch");}, child: Row(
                                         mainAxisAlignment:MainAxisAlignment.spaceBetween,
@@ -285,7 +289,7 @@ class _MobileContainer_2State extends State<MobileContainer_2> with TickerProvid
                                           )
                                         ],),),
                                     )
-
+                              
                                   ],
                                 ),
                               ),

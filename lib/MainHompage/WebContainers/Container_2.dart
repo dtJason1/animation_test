@@ -35,7 +35,7 @@ class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStat
   @override
   void didChangeDependencies(){
 
-    var result = Provider.of<MyScrollPosition>(context);
+    var result = Provider.of<MyScrollPosition>(context, listen: false);
     result.addListener(() {
       if((result.scrollPosition > 600 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1000 ) ){
         AnimationController_0.forward();
