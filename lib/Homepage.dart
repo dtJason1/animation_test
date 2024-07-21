@@ -125,10 +125,9 @@ class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMix
                    crossAxisAlignment: CrossAxisAlignment.start,
 
                    children: [
-                     myHeader(),
                      WebContainer_1(),
-                     WebContainer_2(),
-                     WebContainer_3(),
+                     WebContainer_2(controller: scrollController,),
+                     WebContainer_3(controller: scrollController,),
                      WebContainer_4(),
                      WebContainer_5(),
                      WebContainer_6(),
@@ -144,7 +143,6 @@ class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMix
                    crossAxisAlignment: CrossAxisAlignment.start,
 
                    children: [
-                     myHeader(),
                      TabletContainer_1(),
                      TabletContainer_2(),
                      TabletContainer_3(),

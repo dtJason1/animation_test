@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:kenshin_clone/Homepage.dart';
 import 'package:provider/provider.dart';
 import '../../provider.dart';
 import '../../FadeInDemo.dart';
 import '../../Settings.dart';
 class WebContainer_2 extends StatefulWidget{
+  final ScrollController controller;
+  WebContainer_2({required this.controller});
   @override
   State<WebContainer_2> createState() => _WebContainer_2State();
 }
@@ -35,23 +38,39 @@ class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStat
   @override
   void didChangeDependencies(){
 
-    var result = Provider.of<MyScrollPosition>(context, listen: false);
-    result.addListener(() {
-      if((result.scrollPosition > 600 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1000 ) ){
+    widget.controller.addListener(() {
+      if((widget.controller.offset > 600 && !(widget.controller.offset== ScrollDirection.forward)) || ((widget.controller.position.userScrollDirection == ScrollDirection.forward) && widget.controller.offset  < 1000 ) ){
         AnimationController_0.forward();
       }
 
-      if((result.scrollPosition > 800 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1200 ) ){
+      if((widget.controller.offset> 800 && !(widget.controller.offset== ScrollDirection.forward))|| ((widget.controller.position.userScrollDirection == ScrollDirection.forward) && widget.controller.offset < 1200 ) ){
         AnimationController_1.forward();
       }
-      if((result.scrollPosition > 1000 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1400 ) ){
+      if((widget.controller.offset > 1000 && !(widget.controller.offset== ScrollDirection.forward)) || ((widget.controller.position.userScrollDirection == ScrollDirection.forward) && widget.controller.offset < 1400 ) ){
         AnimationController_2.forward();
       }
-      if((result.scrollPosition > 1200 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1600 ) ){
+      if((widget.controller.offset  > 1200 && !(widget.controller.offset== ScrollDirection.forward)) || (widget.controller.position.userScrollDirection == ScrollDirection.forward && widget.controller.offset  < 1600 ) ){
         AnimationController_3.forward();
       }
 
     });
+    // var result = Provider.of<MyScrollPosition>(context, listen: false);
+    // widget.controller.addListener(() {
+    //   if((result.scrollPosition > 600 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1000 ) ){
+    //     AnimationController_0.forward();
+    //   }
+    //
+    //   if((result.scrollPosition > 800 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1200 ) ){
+    //     AnimationController_1.forward();
+    //   }
+    //   if((result.scrollPosition > 1000 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1400 ) ){
+    //     AnimationController_2.forward();
+    //   }
+    //   if((result.scrollPosition > 1200 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1600 ) ){
+    //     AnimationController_3.forward();
+    //   }
+    //
+    // });
 
   }
   @override

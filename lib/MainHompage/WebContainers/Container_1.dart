@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:kenshin_clone/Homepage.dart';
 import 'package:provider/provider.dart';
 import '../../provider.dart';
 import '../../FadeInDemo.dart';
 import '../../CarouselGallery.dart';
 import '../../Settings.dart';
+import './Header.dart';
 class WebContainer_1 extends StatefulWidget{
   @override
   State<WebContainer_1> createState() => _WebContainer_1State();
@@ -37,9 +39,26 @@ class _WebContainer_1State extends State<WebContainer_1> with TickerProviderStat
   void didChangeDependencies(){
 
     var result = Provider.of<MyScrollPosition>(context, listen: false);
-    if(result.scrollPosition >= 0){
-      AnimationController_0.forward();
+    if(result.scrollPosition == 0){
+      AnimationController_1.forward().whenComplete(() => AnimationController_0.forward().then((value) =>
+          Future.delayed(Duration(seconds: 1)).then((value) => AnimationController_2.forward() )));
+
+
+
     }
+
+
+    result.addListener(() {
+      if(result.scrollPosition >= 0){
+        AnimationController_1.forward().whenComplete(() => AnimationController_0.forward().then((value) =>
+              Future.delayed(Duration(seconds: 1)).then((value) => AnimationController_2.forward() )));
+
+
+
+      }
+
+    });
+
 
   }
   @override
@@ -48,34 +67,53 @@ class _WebContainer_1State extends State<WebContainer_1> with TickerProviderStat
       color: Colors.white,
       child: Column(
         children: [
+          myHeader(AnimationController_2),
+
           Padding(
             padding: EdgeInsets.fromLTRB(rem(2), rem(2),rem(2),rem(3)),
             child: Column(
               children: [
+
                 Container(
 
-                    child: Column(
+                    child: Stack(
                       children: [
                         LineAnimation(AnimationController_0),
-                        Container(height: rem(1.5),),
-                        Container(color: Colors.black, width: MediaQuery.of(context).size.width, height: 1,),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(((MediaQuery.of(context).size.width -34)/12*6),rem(8),0,0),
+                          padding: EdgeInsets.only(top:MediaQuery.of(context).size.width/2699*305),
                           child: Container(
+                            color:Colors.white,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(height: rem(1.5),),
+                                SecondLineAnimation(AnimationController_1),
 
-                            constraints: BoxConstraints(maxWidth: (MediaQuery.of(context).size.width - 34)/12*2),
-                            child: Text("Kenshin is a design studio based in Tokyo - works globally to create iconic brands experiences, with a particular emphasis on what is essential", style: TextStyle(fontSize: rem(1.4)),),),
+                                FadeInDemo(
+                                  controller: AnimationController_2,
+                                  child: Padding(
+                                    padding: EdgeInsets.fromLTRB(((MediaQuery.of(context).size.width -34)/12*6),rem(8),0,0),
+                                    child: Container(
+
+                                      constraints: BoxConstraints(maxWidth: (MediaQuery.of(context).size.width - 34)/12*3),
+                                      child: Text("Kenshin is a design studio based in Tokyo - works globally to create iconic brands experiences, with a particular emphasis on what is essential", style: TextStyle(fontSize: rem(1.4)),),),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
 
                       ],
                     )),
 
-                Container(height: rem(8),),
 
               ],
             ),
           ),
-          CarouselGallery()
+          FadeInDemo(
+              controller: AnimationController_2,
+              child: CarouselGallery())
 
         ],
       ),
@@ -116,14 +154,61 @@ class _LineAnimationoState extends State<LineAnimation> with TickerProviderState
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SlideTransition(
-          position: _imageAnimation,
-          child: Image.asset('assets/images/logo/big_logo.png', width: MediaQuery.of(context).size.width,),),
+    return SlideTransition(
+      position: _imageAnimation,
+      child: Image.asset('assets/images/logo/big_logo.png', width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.width/2699*305,),);
+  }
 
-      ],
+  @override
+  dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+}
+
+
+class SecondLineAnimation extends StatefulWidget {
+  final AnimationController controller;
+  SecondLineAnimation( this.controller);
+  _SecondLineAnimationState createState() => _SecondLineAnimationState();
+}
+
+class _SecondLineAnimationState extends State<SecondLineAnimation> with TickerProviderStateMixin {
+  late AnimationController _controller;
+  late AnimationController _imageController;
+  late CurvedAnimation _curve;
+
+  @override
+  void initState() {
+    _controller = AnimationController(vsync: this, duration: Duration(seconds: 1));
+    _imageController = AnimationController(vsync: this, duration: Duration(seconds: 1));
+    _curve = CurvedAnimation(parent: widget.controller, curve: Curves.easeIn);
+    widget.controller.addListener(() {
+      if(widget.controller.isCompleted){
+        _imageController.forward();
+      }
+
+    });
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return TweenAnimationBuilder(tween:  Tween<double>(begin: 0, end: MediaQuery.of(context).size.width/2,), duration: Duration(seconds: 1),
+
+
+      builder: (BuildContext context, double size, Widget? child) {
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width/2 - size),
+          child: Container(
+            color: Colors.black,
+
+          ),
+        );
+      },
+
     );
+
   }
 
   @override

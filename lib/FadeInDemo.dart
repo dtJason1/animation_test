@@ -17,12 +17,12 @@ class _FadeInDemoState extends State<FadeInDemo> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    _controller = AnimationController(vsync: this, duration: Duration(seconds: 1));
+    _controller = AnimationController(vsync: this, duration: Duration(microseconds: 500));
     _curve = CurvedAnimation(parent: widget.controller, curve: Curves.easeIn);
   }
 
   late final Animation<Offset> _offsetAnimation = Tween<Offset>(
-    begin: Offset(0.0, 1.5),
+    begin: Offset(0.0, 0.2),
     end: Offset(0.0,0.0),
   ).animate(CurvedAnimation(
     parent: widget.controller,

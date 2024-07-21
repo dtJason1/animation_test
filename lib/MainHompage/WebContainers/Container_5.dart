@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kenshin_clone/Homepage.dart';
-import 'package:provider/provider.dart';
 import '../../provider.dart';
 import '../../FadeInDemo.dart';
 import '../../Settings.dart';
@@ -37,22 +36,7 @@ class _WebContainer_5State extends State<WebContainer_5> with TickerProviderStat
   @override
   void didChangeDependencies(){
 
-    var result = Provider.of<MyScrollPosition>(context);
-    if(result.scrollPosition > 500){
-      AnimationController_0.forward();
-    }
-    if(result.scrollPosition > 530){
-      AnimationController_1.forward();
-    }
-    if(result.scrollPosition > 560){
-      AnimationController_2.forward();
-    }
-    if(result.scrollPosition > 590){
-      AnimationController_3.forward();
-    }
-    if(result.scrollPosition > 620){
-      AnimationController_4.forward();
-    }
+
   }
   @override
   Widget build(BuildContext context){
