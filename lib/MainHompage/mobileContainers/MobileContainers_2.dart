@@ -7,6 +7,8 @@ import '../../provider.dart';
 import '../../FadeInDemo.dart';
 import '../../Settings.dart';
 class MobileContainer_2 extends StatefulWidget{
+  final ScrollController controller;
+  MobileContainer_2({required this.controller});
   @override
   State<MobileContainer_2> createState() => _MobileContainer_2State();
 }
@@ -36,22 +38,23 @@ class _MobileContainer_2State extends State<MobileContainer_2> with TickerProvid
   @override
   void didChangeDependencies(){
 
-    var result = Provider.of<MyScrollPosition>(context);
-    result.addListener(() {
-      if((result.scrollPosition > 300 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1000 ) ){
+    widget.controller.addListener(() {
+      if(isForwardAnimatingTrue(widget.controller, 300) || isReverseAnimatingTrue(widget.controller, 600) ){
         AnimationController_0.forward();
       }
 
-      if((result.scrollPosition > 400 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1200 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 400) || isReverseAnimatingTrue(widget.controller, 700) ){
         AnimationController_1.forward();
       }
-      if((result.scrollPosition > 500 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1400 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 500) || isReverseAnimatingTrue(widget.controller, 800) ){
         AnimationController_2.forward();
       }
-      if((result.scrollPosition > 600 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1600 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 600) || isReverseAnimatingTrue(widget.controller, 1000) ){
         AnimationController_3.forward();
       }
-
+      if(isForwardAnimatingTrue(widget.controller, 700) || isReverseAnimatingTrue(widget.controller, 1200) ){
+        AnimationController_4.forward();
+      }
     });
   }
   @override

@@ -6,9 +6,11 @@ import 'package:provider/provider.dart';
 import '../../provider.dart';
 import '../../FadeInDemo.dart';
 import '../../Settings.dart';
-
+import './WebWidgets.dart';
 
 class WebContainer_4 extends StatefulWidget{
+  final ScrollController controller;
+  WebContainer_4({required this.controller});
   @override
   State<WebContainer_4> createState() => _WebContainer_4State();
 }
@@ -38,17 +40,15 @@ class _WebContainer_4State extends State<WebContainer_4> with TickerProviderStat
   @override
   void didChangeDependencies(){
 
-    var result = Provider.of<MyScrollPosition>(context);
-    result.addListener(() {
-      print(result.scrollPosition);
-      if((result.scrollPosition > 3100  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 4400 )){
+    widget.controller.addListener(() {
+      if(isForwardAnimatingTrue(widget.controller, 3200) || isReverseAnimatingTrue(widget.controller, 4000) ){
         AnimationController_0.forward();
       }
 
-      if((result.scrollPosition > 3400  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 5000 )){
+      if(isForwardAnimatingTrue(widget.controller, 3400) || isReverseAnimatingTrue(widget.controller, 4400) ){
         AnimationController_1.forward();
       }
-      if((result.scrollPosition > 4000  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 5500 )){
+      if(isForwardAnimatingTrue(widget.controller, 4000) || isReverseAnimatingTrue(widget.controller, 4700) ){
         AnimationController_2.forward();
       }
 
@@ -82,23 +82,7 @@ class _WebContainer_4State extends State<WebContainer_4> with TickerProviderStat
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        ElevatedButton(
-
-                          style:ElevatedButton.styleFrom(
-
-                            backgroundColor: Colors.white,
-                            surfaceTintColor: Colors.white,
-                            foregroundColor: Colors.white,
-                            shadowColor: Colors.transparent,
-                            padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
-                            shape: RoundedRectangleBorder(side: BorderSide(
-                                color: Colors.black,
-                                width: 1,
-                                style: BorderStyle.solid
-                            ), borderRadius: BorderRadius.circular(24)),
-
-                          )  ,
-                          onPressed: (){print("get in touch");}, child: Text("Work" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
+                        containerHeaderButton("WORK"),
                         Container(width: MediaQuery.of(context).size.width/12*3,),
                         Container(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width/12*6,),
                             child: Text("Our work lie in effectively implementing strategic plans to generate tangible business value",style: TextStyle(fontWeight: FontWeight.w500, fontSize: rem(3.5), ),)
@@ -186,31 +170,7 @@ class _WebContainer_4State extends State<WebContainer_4> with TickerProviderStat
                           Container(
                             width: 164.66,
                             height: 38.67,
-                            child: ElevatedButton(
-
-                              style:ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                surfaceTintColor: Colors.white,
-                                foregroundColor: Colors.white,
-                                shadowColor: Colors.transparent,
-                                padding: EdgeInsets.fromLTRB(rem(1), rem(0.25), rem(0.25), rem(0.25)),
-                                shape: RoundedRectangleBorder(side: BorderSide(
-                                    color: Colors.black,
-                                    width: 1,
-                                    style: BorderStyle.solid
-                                ), borderRadius: BorderRadius.circular(24)),
-
-                              )  ,
-                              onPressed: (){print("get in touch");}, child: Row(
-                              mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("More About us" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
-                                SizedBox(width: rem(0.5),),
-                                Container(
-                                    decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
-                                    child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
-                                )
-                              ],),),
+                            child: containerFooterButton("More About Us"),
                           )
 
                         ],

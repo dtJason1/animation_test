@@ -8,6 +8,9 @@ import '../../FadeInDemo.dart';
 import '../../Settings.dart';
 
 class TabletContainer_4 extends StatefulWidget{
+  TabletContainer_4({required this.controller});
+  final ScrollController controller;
+
   @override
   State<TabletContainer_4> createState() => _TabletContainer_4State();
 }
@@ -37,20 +40,19 @@ class _TabletContainer_4State extends State<TabletContainer_4> with TickerProvid
   @override
   void didChangeDependencies(){
 
-    var result = Provider.of<MyScrollPosition>(context);
-    result.addListener(() {
-      print(result.scrollPosition);
-      if((result.scrollPosition > 2900  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 4400 )){
+
+
+    widget.controller.addListener(() {
+      if(isForwardAnimatingTrue(widget.controller, 2900) || isReverseAnimatingTrue(widget.controller, 4800) ){
         AnimationController_0.forward();
       }
 
-      if((result.scrollPosition > 3100  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 5000 )){
+      if(isForwardAnimatingTrue(widget.controller, 3100) || isReverseAnimatingTrue(widget.controller, 5000) ){
         AnimationController_1.forward();
       }
-      if((result.scrollPosition > 3300  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 5500 )){
+      if(isForwardAnimatingTrue(widget.controller, 3300) || isReverseAnimatingTrue(widget.controller, 5500) ){
         AnimationController_2.forward();
       }
-
 
 
     });

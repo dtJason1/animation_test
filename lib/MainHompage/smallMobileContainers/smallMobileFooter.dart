@@ -130,7 +130,7 @@ class _SmallMobileFooterState extends State<SmallMobileFooter> with TickerProvid
                           children: [
                             Icon(Icons.link , color: Color.fromRGBO(255, 255, 255 ,0.5),),
                             SizedBox(width: rem(0.5),),
-                            Text("Instasfsdfsgram",style:  TextStyle(color: Color.fromRGBO(255, 255, 255 ,0.5), fontSize: rem(1)),),
+                            Text("Instagram",style:  TextStyle(color: Color.fromRGBO(255, 255, 255 ,0.5), fontSize: rem(1)),),
                           ],),
                       ),),
                       Container(height: rem(0.5),),

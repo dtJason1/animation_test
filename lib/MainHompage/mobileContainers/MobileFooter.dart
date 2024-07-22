@@ -37,22 +37,6 @@ class _MobileFooterState extends State<MobileFooter> with TickerProviderStateMix
   @override
   void didChangeDependencies(){
 
-    var result = Provider.of<MyScrollPosition>(context);
-    if(result.scrollPosition > 500){
-      AnimationController_0.forward();
-    }
-    if(result.scrollPosition > 530){
-      AnimationController_1.forward();
-    }
-    if(result.scrollPosition > 560){
-      AnimationController_2.forward();
-    }
-    if(result.scrollPosition > 590){
-      AnimationController_3.forward();
-    }
-    if(result.scrollPosition > 620){
-      AnimationController_4.forward();
-    }
   }
   @override
   Widget build(BuildContext context){
@@ -128,7 +112,7 @@ class _MobileFooterState extends State<MobileFooter> with TickerProviderStateMix
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(width: rem(0.5),),
-                            Text("Instasfsdfsgram",style:  TextStyle(color: Color.fromRGBO(255, 255, 255 ,0.5), fontSize: rem(1)),),
+                            Text("Instagram",style:  TextStyle(color: Color.fromRGBO(255, 255, 255 ,0.5), fontSize: rem(1)),),
                           ],),
                       ),),
                       Container(height: rem(0.5),),

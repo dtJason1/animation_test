@@ -8,6 +8,8 @@ import '../../Settings.dart';
 
 
 class SmallMobileContainer_3 extends StatefulWidget{
+  final ScrollController controller;
+  SmallMobileContainer_3({required this.controller});
   @override
   State<SmallMobileContainer_3> createState() => _SmallMobileContainer_3State();
 }
@@ -42,26 +44,27 @@ class _SmallMobileContainer_3State extends State<SmallMobileContainer_3> with Ti
   void didChangeDependencies(){
 
     var result = Provider.of<MyScrollPosition>(context);
-    result.addListener(() {
-      if((result.scrollPosition > 1200  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2000 )){
+    widget.controller.addListener(() {
+      if(isForwardAnimatingTrue(widget.controller, 1500) || isReverseAnimatingTrue(widget.controller, 1400) ){
         AnimationController_0.forward();
       }
-      if((result.scrollPosition > 1350  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2200 )){
+
+      if(isForwardAnimatingTrue(widget.controller, 1600) || isReverseAnimatingTrue(widget.controller, 1500) ){
         AnimationController_1.forward();
       }
-      if((result.scrollPosition > 1500  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2400 )){
+      if(isForwardAnimatingTrue(widget.controller, 1650) || isReverseAnimatingTrue(widget.controller, 1600) ){
         AnimationController_2.forward();
       }
-      if((result.scrollPosition > 1750  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2600 )){
+      if(isForwardAnimatingTrue(widget.controller, 1700) || isReverseAnimatingTrue(widget.controller, 1700) ){
         AnimationController_3.forward();
       }
-      if((result.scrollPosition > 1900  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2800 )){
+      if(isForwardAnimatingTrue(widget.controller, 1900) || isReverseAnimatingTrue(widget.controller, 1800) ){
         AnimationController_4.forward();
       }
-      if((result.scrollPosition > 2050  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 3000 )){
+      if(isForwardAnimatingTrue(widget.controller, 2100) || isReverseAnimatingTrue(widget.controller, 1900) ){
         AnimationController_5.forward();
       }
-      if((result.scrollPosition > 2200  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 3000 )){
+      if(isForwardAnimatingTrue(widget.controller, 2300) || isReverseAnimatingTrue(widget.controller, 2000) ){
         AnimationController_6.forward();
       }
     });

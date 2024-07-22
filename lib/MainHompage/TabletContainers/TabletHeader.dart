@@ -1,43 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:kenshin_clone/FadeInDemo.dart';
 import '../../Settings.dart';
+import './TabletWidgets.dart';
 
-Container myHeader (){
-  return Container(
-    color: Colors.white,
-    child: Padding(
-      padding: EdgeInsets.fromLTRB(rem(2), rem(2),rem(2),rem(3)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          HeaderLogo(),
-          HeaderTextButtons(),
-          ElevatedButton(
-
-            style:ElevatedButton.styleFrom(
-              minimumSize: Size(149,39),
-              backgroundColor: Colors.white,
-              surfaceTintColor: Colors.white,
-              foregroundColor: Colors.white,
-              shadowColor: Colors.transparent,
-              padding: EdgeInsets.fromLTRB(rem(1), rem(0.25), rem(0.25), rem(0.25)),
-              shape: RoundedRectangleBorder(side: BorderSide(
-                  color: Colors.black,
-                  width: 1,
-                  style: BorderStyle.solid
-              ), borderRadius: BorderRadius.circular(24)),
-
-            )  ,
-            onPressed: (){print("get in touch");}, child: Row(
-            mainAxisAlignment:MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Get in touch",style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
-              SizedBox(width: rem(0.5),),
-              Container(
-                  decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
-                  child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
-              )
-            ],),)
-        ],
+FadeInDemo tabletHeader (AnimationController controller){
+  return FadeInDemo(
+    controller: controller,
+    child: Container(
+      color: Colors.white,
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(rem(2), rem(2),rem(2),rem(3)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            HeaderLogo(),
+            HeaderTextButtons(),
+            containerFooterButton("Get In touch")
+          ],
+        ),
       ),
     ),
   );

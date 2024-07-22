@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kenshin_clone/MainHompage/TabletContainers/TabletWidgets.dart';
 import 'package:provider/provider.dart';
 import '../../provider.dart';
 import '../../FadeInDemo.dart';
 import '../../Settings.dart';
 class TabletContainer_2 extends StatefulWidget{
+  final ScrollController controller;
+  TabletContainer_2({required this.controller});
   @override
   State<TabletContainer_2> createState() => _TabletContainer_2State();
 }
@@ -35,22 +38,27 @@ class _TabletContainer_2State extends State<TabletContainer_2> with TickerProvid
   void didChangeDependencies(){
 
     var result = Provider.of<MyScrollPosition>(context);
-    result.addListener(() {
-      if((result.scrollPosition > 600 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1000 ) ){
+    widget.controller.addListener(() {
+      if(isForwardAnimatingTrue(widget.controller, 600) || isReverseAnimatingTrue(widget.controller, 600) ){
         AnimationController_0.forward();
       }
 
-      if((result.scrollPosition > 800 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1200 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 800) || isReverseAnimatingTrue(widget.controller, 1000) ){
         AnimationController_1.forward();
       }
-      if((result.scrollPosition > 1000 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1400 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 1000) || isReverseAnimatingTrue(widget.controller, 1200) ){
         AnimationController_2.forward();
       }
-      if((result.scrollPosition > 1200 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 1600 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 1200) || isReverseAnimatingTrue(widget.controller, 1400) ){
         AnimationController_3.forward();
       }
-
+      if(isForwardAnimatingTrue(widget.controller, 1400) || isReverseAnimatingTrue(widget.controller, 1400) ){
+        AnimationController_4.forward();
+      }
     });
+
+
+
 
   }
   @override
@@ -69,25 +77,9 @@ class _TabletContainer_2State extends State<TabletContainer_2> with TickerProvid
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ElevatedButton(
-
-                          style:ElevatedButton.styleFrom(
-
-                            backgroundColor: Colors.white,
-                            surfaceTintColor: Colors.white,
-                            foregroundColor: Colors.white,
-                            shadowColor: Colors.transparent,
-                            padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
-                            shape: RoundedRectangleBorder(side: BorderSide(
-                                color: Colors.black,
-                                width: 1,
-                                style: BorderStyle.solid
-                            ), borderRadius: BorderRadius.circular(24)),
-
-                          )  ,
-                          onPressed: (){print("get in touch");}, child: Text("About" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
+                        containerHeaderButton("ABOUT"),
                         Container(height: rem(1), color: Colors.white,),
-                        Container(width: MediaQuery.of(context).size.width, height: 1, color: Colors.black,),
+                        Container(width: MediaQuery.of(context).size.width, height: 1, color: Color.fromRGBO(0, 0, 0, 0.2),),
                       ],
                     ),
                   ),
@@ -117,7 +109,7 @@ class _TabletContainer_2State extends State<TabletContainer_2> with TickerProvid
                             width:  (MediaQuery.of(context).size.width-64)/8*2,
                             child: Row(
                               children: [
-                                Container(width: 1, height: 130,  color: Colors.grey,),
+                                Container(width: 1, height: 130,  color: Color.fromRGBO(0, 0, 0, 0.2),),
                                 Padding(
                                   padding: EdgeInsets.only(left: rem(1.5)),
                                   child: Container(
@@ -146,7 +138,7 @@ class _TabletContainer_2State extends State<TabletContainer_2> with TickerProvid
                             padding: EdgeInsets.only(left: (MediaQuery.of(context).size.width-64)/8),
                             child: Row(
                               children: [
-                                Container(width: 1, height: 130,  color: Colors.grey,),
+                                Container(width: 1, height: 130,  color: Color.fromRGBO(0, 0, 0, 0.2),),
                                 Padding(
                                   padding: EdgeInsets.only(left: rem(1.5)),
                                   child: Container(
@@ -189,7 +181,7 @@ class _TabletContainer_2State extends State<TabletContainer_2> with TickerProvid
                               width:  (MediaQuery.of(context).size.width-64)/8*2,
                               child: Row(
                                 children: [
-                                  Container(width: 1, height: 130,  color: Colors.grey,),
+                                  Container(width: 1, height: 130,  color: Color.fromRGBO(0, 0, 0, 0.2),),
                                   Padding(
                                     padding: EdgeInsets.only(left: rem(1.5)),
                                     child: Container(
@@ -216,7 +208,7 @@ class _TabletContainer_2State extends State<TabletContainer_2> with TickerProvid
                               padding: EdgeInsets.only(left: (MediaQuery.of(context).size.width-64)/8),
                               child: Row(
                                 children: [
-                                  Container(width: 1, height: 130,  color: Colors.grey,),
+                                  Container(width: 1, height: 130,  color: Color.fromRGBO(0, 0, 0, 0.2),),
                                   Padding(
                                     padding: EdgeInsets.only(left: rem(1.5)),
                                     child: Container(
@@ -251,8 +243,9 @@ class _TabletContainer_2State extends State<TabletContainer_2> with TickerProvid
                   FadeInDemo(
                     controller: AnimationController_3,
                     child: Container(
-                      width: 164.66,
-                      height: 38.67,
+                      height: 39,
+                      width: 170,
+
                       child: ElevatedButton(
 
                         style:ElevatedButton.styleFrom(
@@ -262,7 +255,7 @@ class _TabletContainer_2State extends State<TabletContainer_2> with TickerProvid
                           shadowColor: Colors.transparent,
                           padding: EdgeInsets.fromLTRB(rem(1), rem(0.25), rem(0.25), rem(0.25)),
                           shape: RoundedRectangleBorder(side: BorderSide(
-                              color: Colors.black,
+                              color: Color.fromRGBO(0, 0, 0, 0.1),
                               width: 1,
                               style: BorderStyle.solid
                           ), borderRadius: BorderRadius.circular(24)),
@@ -271,14 +264,14 @@ class _TabletContainer_2State extends State<TabletContainer_2> with TickerProvid
                         onPressed: (){print("get in touch");}, child: Row(
                         mainAxisAlignment:MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("More About us" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
+                          Text("More About us" ,style:  TextStyle(color: Color.fromRGBO(0, 0, 0, 0.85),fontWeight: FontWeight.w400 ,fontSize: rem(1)),),
                           SizedBox(width: rem(0.5),),
                           Container(
-                              decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
+                              decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all(color: Color.fromRGBO(0, 0, 0, 0.1)),),
                               child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
                           )
                         ],),),
-                    ),
+                    )    ,
                   )
                 ],
               )

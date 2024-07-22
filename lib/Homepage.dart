@@ -24,7 +24,7 @@ import 'MainHompage/TabletContainers/TabletContainers_2.dart';
 import 'MainHompage/TabletContainers/TabletContainers_3.dart';
 import 'MainHompage/TabletContainers/TabletContainers_4.dart';
 import 'MainHompage/TabletContainers/TabletContainers_5.dart';
-import 'MainHompage/TabletContainers/TabletContainer_6.dart';
+import 'MainHompage/TabletContainers/TabletContainers_6.dart';
 import 'MainHompage/mobileContainers/MobileContainers_1.dart';
 import 'MainHompage/mobileContainers/MobileContainers_2.dart';
 import 'MainHompage/mobileContainers/MobileContainers_3.dart';
@@ -87,9 +87,7 @@ class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMix
     // result.scrollPositionUpdate(scrollController.offset);
 
     scrollController.addListener(() {
-      var result = Provider.of<MyScrollPosition>(context, listen: false);
 
-      result.scrollPositionUpdate(scrollController.offset);
       // if(scrollController.offset > 0){
       //   _lineController.forward().then((value) => _controller.forward());
       // }
@@ -125,12 +123,12 @@ class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMix
                    crossAxisAlignment: CrossAxisAlignment.start,
 
                    children: [
-                     WebContainer_1(),
+                     WebContainer_1(controller: scrollController,),
                      WebContainer_2(controller: scrollController,),
                      WebContainer_3(controller: scrollController,),
-                     WebContainer_4(),
+                     WebContainer_4(controller: scrollController,),
                      WebContainer_5(),
-                     WebContainer_6(),
+                     WebContainer_6(controller: scrollController,),
                      Footer(),
 
 
@@ -143,12 +141,12 @@ class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMix
                    crossAxisAlignment: CrossAxisAlignment.start,
 
                    children: [
-                     TabletContainer_1(),
-                     TabletContainer_2(),
-                     TabletContainer_3(),
-                     TabletContainer_4(),
+                     TabletContainer_1(controller: scrollController,),
+                     TabletContainer_2(controller: scrollController,),
+                     TabletContainer_3(controller: scrollController,),
+                     TabletContainer_4(controller: scrollController,),
                      TabletContainer_5(),
-                     TabletContainer_6(),
+                     TabletContainer_6(controller: scrollController,),
                      TabletFooter()
 
                    ],
@@ -158,13 +156,12 @@ class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMix
                else if(MediaQuery.of(context).size.width < 800 && MediaQuery.of(context).size.width > 540){
                  return Column(
                    children: [
-                     mobileHeader(),
-                     MobileContainer_1(),
-                     MobileContainer_2(),
-                     MobileContainer_3(),
-                     MobileContainer_4(),
+                     MobileContainer_1(controller: scrollController,),
+                     MobileContainer_2(controller: scrollController,),
+                     MobileContainer_3(controller: scrollController,),
+                     MobileContainer_4(controller: scrollController,),
                      MobileContainer_5(),
-                     MobileContainer_6(),
+                     MobileContainer_6(controller: scrollController,),
                      MobileFooter()
 
 
@@ -176,13 +173,12 @@ class _MainHomepageState extends State<MainHomepage> with TickerProviderStateMix
                else{
                  return Column(
                    children: [
-                     SmallMobileHeader(),
-                     SmallMobileContainer_1(),
-                     SmallMobileContainer_2(),
-                     SmallMobileContainer_3(),
-                     SmallMobileContainer_4(),
+                     SmallMobileContainer_1(controller:  scrollController,),
+                     SmallMobileContainer_2(controller: scrollController),
+                     SmallMobileContainer_3(controller: scrollController),
+                     SmallMobileContainer_4(controller: scrollController,),
                      SmallMobileContainer_5(),
-                     SmallMobileContainer_6(),
+                     SmallMobileContainer_6(controller: scrollController,),
                      SmallMobileFooter()
 
 

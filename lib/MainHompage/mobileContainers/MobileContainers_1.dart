@@ -6,13 +6,18 @@ import '../../provider.dart';
 import '../../FadeInDemo.dart';
 import '../../CarouselGallery.dart';
 import '../../Settings.dart';
+import './MobileHeader.dart';
 class MobileContainer_1 extends StatefulWidget{
+  final ScrollController controller;
+  MobileContainer_1({required this.controller});
   @override
   State<MobileContainer_1> createState() => _MobileContainer_1State();
 }
 
 class _MobileContainer_1State extends State<MobileContainer_1> with TickerProviderStateMixin {
   late AnimationController AnimationController_0;
+  late AnimationController AnimationController_1;
+  late AnimationController AnimationController_2;
 
 
 
@@ -20,7 +25,9 @@ class _MobileContainer_1State extends State<MobileContainer_1> with TickerProvid
   void initState(){
     AnimationController_0 = AnimationController(vsync: this, duration: Duration(seconds: 1));
 
+    AnimationController_1 = AnimationController(vsync: this, duration: Duration(seconds: 1));
 
+    AnimationController_2 = AnimationController(vsync: this, duration: Duration(seconds: 1));
 
     super.initState();
 
@@ -29,10 +36,19 @@ class _MobileContainer_1State extends State<MobileContainer_1> with TickerProvid
   @override
   void didChangeDependencies(){
 
-    var result = Provider.of<MyScrollPosition>(context);
-    if(result.scrollPosition >= 0){
-      AnimationController_0.forward();
+    if(widget.controller.offset== 0){
+      AnimationController_1.forward().whenComplete(() => AnimationController_0.forward().then((value) =>
+          Future.delayed(Duration(seconds: 1)).then((value) => AnimationController_2.forward() )));
     }
+
+    widget.controller.addListener(() {
+      if(isForwardAnimatingTrue(widget.controller, 0) || isReverseAnimatingTrue(widget.controller, 0) ){
+        AnimationController_1.forward().whenComplete(() => AnimationController_0.forward().then((value) =>
+            Future.delayed(Duration(seconds: 1)).then((value) => AnimationController_2.forward() )));
+      }
+    });
+
+
 
   }
   @override
@@ -40,7 +56,9 @@ class _MobileContainer_1State extends State<MobileContainer_1> with TickerProvid
     return Container(
       color: Colors.white,
       child: Column(
+
         children: [
+          mobileHeader(AnimationController_2),
           Padding(
             padding: EdgeInsets.fromLTRB(rem(2), rem(2),rem(2),0),
             child: Column(
@@ -51,13 +69,15 @@ class _MobileContainer_1State extends State<MobileContainer_1> with TickerProvid
                       children: [
                         LineAnimation(AnimationController_0),
                         Container(height: rem(1.5),),
-                        Container(color: Colors.black, width: MediaQuery.of(context).size.width, height: 1,),
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(((MediaQuery.of(context).size.width -2*rem(2))/8*4),rem(2),0,rem(2)),
-                          child: Container(
+                        FadeInDemo(
+                          controller: AnimationController_2,
+                          child: Padding(
+                            padding: EdgeInsets.fromLTRB(((MediaQuery.of(context).size.width -2*rem(2))/8*4),rem(2),0,rem(2)),
+                            child: Container(
 
-                            constraints: BoxConstraints(maxWidth: (MediaQuery.of(context).size.width - 2*rem(2))/8*4),
-                            child: Text("Kenshin is a design studio based in Tokyo - works globally to create iconic brands experiences, with a particular emphasis on what is essential", style: TextStyle(fontSize: rem(1)),),),
+                              constraints: BoxConstraints(maxWidth: (MediaQuery.of(context).size.width - 2*rem(2))/8*4),
+                              child: Text("Kenshin is a design studio based in Tokyo - works globally to create iconic brands experiences, with a particular emphasis on what is essential", style: TextStyle(fontSize: rem(1)),),),
+                          ),
                         ),
 
                       ],
@@ -67,7 +87,9 @@ class _MobileContainer_1State extends State<MobileContainer_1> with TickerProvid
               ],
             ),
           ),
-          CarouselGallery()
+          FadeInDemo(
+              controller: AnimationController_2,
+              child: CarouselGallery())
 
 
         ],
@@ -102,7 +124,6 @@ class _LineAnimationoState extends State<LineAnimation> with TickerProviderState
     });
   }
 
-  late final Animation _offsetAnimation = Tween(begin: 0, end: MediaQuery.of(context).size.width,).animate(CurvedAnimation(parent: widget.controller, curve: Curves.easeInOut,));
 
 
   late final Animation<Offset> _imageAnimation = Tween<Offset>(begin: Offset(0.0, 1.0), end: Offset(0.0,0),).animate(CurvedAnimation(parent: _imageController, curve: Curves.easeIn,));
@@ -113,8 +134,11 @@ class _LineAnimationoState extends State<LineAnimation> with TickerProviderState
       children: [
         SlideTransition(
           position: _imageAnimation,
-          child: Image.asset('assets/images/logo/big_logo.png', width: MediaQuery.of(context).size.width,),),
+          child: Image.asset('assets/images/logo/big_logo.png', width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.width/2699*305,),),
 
+        Positioned(
+            bottom: MediaQuery.of(context).size.width/2699*305,
+            child: Container(color: Colors.white, width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.width/2699*305,))
       ],
     );
   }

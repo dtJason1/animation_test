@@ -39,17 +39,17 @@ class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStat
   void didChangeDependencies(){
 
     widget.controller.addListener(() {
-      if((widget.controller.offset > 600 && !(widget.controller.offset== ScrollDirection.forward)) || ((widget.controller.position.userScrollDirection == ScrollDirection.forward) && widget.controller.offset  < 1000 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 600) || isReverseAnimatingTrue(widget.controller, 600) ){
         AnimationController_0.forward();
       }
 
-      if((widget.controller.offset> 800 && !(widget.controller.offset== ScrollDirection.forward))|| ((widget.controller.position.userScrollDirection == ScrollDirection.forward) && widget.controller.offset < 1200 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 800) || isReverseAnimatingTrue(widget.controller, 1000) ){
         AnimationController_1.forward();
       }
-      if((widget.controller.offset > 1000 && !(widget.controller.offset== ScrollDirection.forward)) || ((widget.controller.position.userScrollDirection == ScrollDirection.forward) && widget.controller.offset < 1400 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 1000) || isReverseAnimatingTrue(widget.controller, 1200) ){
         AnimationController_2.forward();
       }
-      if((widget.controller.offset  > 1200 && !(widget.controller.offset== ScrollDirection.forward)) || (widget.controller.position.userScrollDirection == ScrollDirection.forward && widget.controller.offset  < 1600 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 1200) || isReverseAnimatingTrue(widget.controller, 1400) ){
         AnimationController_3.forward();
       }
 
@@ -99,15 +99,22 @@ class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStat
                             shadowColor: Colors.transparent,
                             padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
                             shape: RoundedRectangleBorder(side: BorderSide(
-                                color: Colors.black,
+                                color: Color.fromRGBO(0, 0, 0, 0.1),
                                 width: 1,
                                 style: BorderStyle.solid
                             ), borderRadius: BorderRadius.circular(24)),
 
                           )  ,
-                          onPressed: (){print("get in touch");}, child: Text("About" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
+                          onPressed: (){print("get in touch");}, child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(width: 4,height: 4, decoration: BoxDecoration(borderRadius: BorderRadius.circular(50) ,color: Colors.black),),
+                              Container(width: rem(0.5),),
+                              Text("ABOUT" ,style:  TextStyle(color: Colors.black, fontSize: rem(1),  ),),
+                            ],
+                          ),),
                         Container(height: rem(1), color: Colors.white,),
-                        Container(width: MediaQuery.of(context).size.width, height: 1, color: Colors.black,),
+                        Container(width: MediaQuery.of(context).size.width, height: 1, color: Color.fromRGBO(0, 0, 0, 0.1),),
                       ],
                     ),
                   ),
@@ -136,7 +143,7 @@ class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStat
                                 width:  (MediaQuery.of(context).size.width-64)/12*2,
                                 child: Row(
                                   children: [
-                                    Container(width: 1, height: 130,  color: Colors.grey,),
+                                    Container(width: 1, height: 130,  color: Color.fromRGBO(0, 0, 0, 0.1),),
                                     Padding(
                                       padding: EdgeInsets.only(left: rem(1.5)),
                                       child: Container(
@@ -165,7 +172,7 @@ class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStat
                                 padding: EdgeInsets.only(left: (MediaQuery.of(context).size.width-64)/12),
                                 child: Row(
                                   children: [
-                                    Container(width: 1, height: 130,  color: Colors.grey,),
+                                    Container(width: 1, height: 130,  color: Color.fromRGBO(0, 0, 0, 0.1),),
                                     Padding(
                                       padding: EdgeInsets.only(left: rem(1.5)),
                                       child: Container(
@@ -208,7 +215,7 @@ class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStat
                                   width:  (MediaQuery.of(context).size.width-64)/12*2,
                                   child: Row(
                                     children: [
-                                      Container(width: 1, height: 130,  color: Colors.grey,),
+                                      Container(width: 1, height: 130,  color: Color.fromRGBO(0, 0, 0, 0.1),),
                                       Padding(
                                         padding: EdgeInsets.only(left: rem(1.5)),
                                         child: Container(
@@ -235,7 +242,7 @@ class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStat
                                   padding: EdgeInsets.only(left: (MediaQuery.of(context).size.width-64)/12),
                                   child: Row(
                                     children: [
-                                      Container(width: 1, height: 130,  color: Colors.grey,),
+                                      Container(width: 1, height: 130,  color: Color.fromRGBO(0, 0, 0, 0.1),),
                                       Padding(
                                         padding: EdgeInsets.only(left: rem(1.5)),
                                         child: Container(
@@ -272,7 +279,7 @@ class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStat
                                 shadowColor: Colors.transparent,
                                 padding: EdgeInsets.fromLTRB(rem(1), rem(0.25), rem(0.25), rem(0.25)),
                                 shape: RoundedRectangleBorder(side: BorderSide(
-                                    color: Colors.black,
+                                    color: Color.fromRGBO(0, 0, 0, 0.1),
                                     width: 1,
                                     style: BorderStyle.solid
                                 ), borderRadius: BorderRadius.circular(24)),
@@ -281,13 +288,15 @@ class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStat
                               onPressed: (){print("get in touch");}, child: Row(
                               mainAxisAlignment:MainAxisAlignment.spaceBetween,
                               children: [
-                                Text("More About us" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
+                                Text("More About us" ,style:  TextStyle(color: Color.fromRGBO(0, 0, 0, 0.85),fontWeight: FontWeight.w400 ,fontSize: rem(1)),),
                                 SizedBox(width: rem(0.5),),
                                 Container(
-                                    decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
+                                    decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all(color: Color.fromRGBO(0, 0, 0, 0.1)),),
                                     child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
                                 )
-                              ],),)                      ],
+                              ],),)
+
+                          ],
                         ),
                       ),
 
@@ -304,3 +313,5 @@ class _WebContainer_2State extends State<WebContainer_2> with TickerProviderStat
     );
   }
 }
+
+

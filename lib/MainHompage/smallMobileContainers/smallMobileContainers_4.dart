@@ -8,6 +8,8 @@ import '../../FadeInDemo.dart';
 import '../../Settings.dart';
 
 class SmallMobileContainer_4 extends StatefulWidget{
+  final ScrollController controller;
+  SmallMobileContainer_4({required this.controller});
   @override
   State<SmallMobileContainer_4> createState() => _SmallMobileContainer_4State();
 }
@@ -38,20 +40,23 @@ class _SmallMobileContainer_4State extends State<SmallMobileContainer_4> with Ti
   void didChangeDependencies(){
 
     var result = Provider.of<MyScrollPosition>(context);
-    result.addListener(() {
-      if((result.scrollPosition > 2400  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2000 )){
+
+
+    widget.controller.addListener(() {
+      if(isForwardAnimatingTrue(widget.controller, 2500) || isReverseAnimatingTrue(widget.controller, 1400) ){
         AnimationController_0.forward();
       }
-      if((result.scrollPosition > 2600  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2200 )){
+
+      if(isForwardAnimatingTrue(widget.controller, 2700) || isReverseAnimatingTrue(widget.controller, 1500) ){
         AnimationController_1.forward();
       }
-      if((result.scrollPosition > 3000  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2400 )){
+      if(isForwardAnimatingTrue(widget.controller, 3100) || isReverseAnimatingTrue(widget.controller, 1600) ){
         AnimationController_2.forward();
       }
-      if((result.scrollPosition > 3400  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2600 )){
+      if(isForwardAnimatingTrue(widget.controller, 3300) || isReverseAnimatingTrue(widget.controller, 1700) ){
         AnimationController_3.forward();
       }
-      if((result.scrollPosition > 3800  && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 2800 )){
+      if(isForwardAnimatingTrue(widget.controller, 3500) || isReverseAnimatingTrue(widget.controller, 1800) ){
         AnimationController_4.forward();
       }
 

@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import '../../provider.dart';
 import '../../FadeInDemo.dart';
 import '../../Settings.dart';
-
+import './WebWidgets.dart';
 
 class WebContainer_3 extends StatefulWidget{
   final ScrollController controller;
@@ -45,24 +45,25 @@ class _WebContainer_3State extends State<WebContainer_3> with TickerProviderStat
   @override
   void didChangeDependencies(){
 
+
     widget.controller.addListener(() {
-      if((widget.controller.offset > 1600 && !(widget.controller.offset == ScrollDirection.forward)) || ((widget.controller.position.userScrollDirection == ScrollDirection.forward) && widget.controller.offset  < 2000 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 1600) || isReverseAnimatingTrue(widget.controller, 2500) ){
         AnimationController_0.forward();
       }
 
-      if((widget.controller.offset> 1800 && !(widget.controller.offset== ScrollDirection.forward))|| ((widget.controller.position.userScrollDirection == ScrollDirection.forward) && widget.controller.offset < 2200 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 1800) || isReverseAnimatingTrue(widget.controller, 2700) ){
         AnimationController_1.forward();
       }
-      if((widget.controller.offset > 2000 && !(widget.controller.offset== ScrollDirection.forward)) || ((widget.controller.position.userScrollDirection == ScrollDirection.forward) && widget.controller.offset < 2400 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 2000) || isReverseAnimatingTrue(widget.controller, 2800) ){
         AnimationController_2.forward();
       }
-      if((widget.controller.offset  > 2200 && !(widget.controller.offset== ScrollDirection.forward)) || (widget.controller.position.userScrollDirection == ScrollDirection.forward && widget.controller.offset  < 2600 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 2200) || isReverseAnimatingTrue(widget.controller, 2900) ){
         AnimationController_3.forward();
       }
-      if((widget.controller.offset  > 2400 && !(widget.controller.offset== ScrollDirection.forward)) || (widget.controller.position.userScrollDirection == ScrollDirection.forward && widget.controller.offset  < 2800 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 2400) || isReverseAnimatingTrue(widget.controller, 3000) ){
         AnimationController_4.forward();
       }
-      if((widget.controller.offset  > 2600 && !(widget.controller.offset== ScrollDirection.forward)) || (widget.controller.position.userScrollDirection == ScrollDirection.forward && widget.controller.offset  < 3000 ) ){
+      if(isForwardAnimatingTrue(widget.controller, 2600) || isReverseAnimatingTrue(widget.controller, 3100) ){
         AnimationController_5.forward();
       }
     });
@@ -108,27 +109,15 @@ class _WebContainer_3State extends State<WebContainer_3> with TickerProviderStat
             children: [
               FadeInDemo(
                 controller: AnimationController_0,
-                child: ElevatedButton(
-                  style:ElevatedButton.styleFrom(
+                child:
 
-                    backgroundColor: Colors.white,
-                    surfaceTintColor: Colors.white,
-                    foregroundColor: Colors.white,
-                    shadowColor: Colors.transparent,
-                    padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
-                    shape: RoundedRectangleBorder(side: BorderSide(
-                        color: Colors.black,
-                        width: 1,
-                        style: BorderStyle.solid
-                    ), borderRadius: BorderRadius.circular(24)),
+                    containerHeaderButton("SERVICES" )
 
-                  )  ,
-                  onPressed: (){print("get in touch");}, child: Text("Services" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
               ),
               SizedBox(height: rem(1),),
               FadeInDemo(
                   controller: AnimationController_0,
-                  child: Container(width: MediaQuery.of(context).size.width, height: 1,color: Colors.black,)),
+                  child: Container(width: MediaQuery.of(context).size.width, height: 1,color: Color.fromRGBO(0, 0, 0, 0.1),)),
               SizedBox(height: rem(3),),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -211,31 +200,7 @@ class _WebContainer_3State extends State<WebContainer_3> with TickerProviderStat
                       SizedBox(height: rem(4),),
                       FadeInDemo(
                         controller: AnimationController_5,
-                        child: ElevatedButton(
-
-                          style:ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            surfaceTintColor: Colors.white,
-                            foregroundColor: Colors.white,
-                            shadowColor: Colors.transparent,
-                            padding: EdgeInsets.fromLTRB(rem(1), rem(0.25), rem(0.25), rem(0.25)),
-                            shape: RoundedRectangleBorder(side: BorderSide(
-                                color: Colors.black,
-                                width: 1,
-                                style: BorderStyle.solid
-                            ), borderRadius: BorderRadius.circular(24)),
-
-                          )  ,
-                          onPressed: (){print("get in touch");}, child: Row(
-                          mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text("View Detail" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
-                            SizedBox(width: rem(0.5),),
-                            Container(
-                                decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
-                                child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
-                            )
-                          ],),),
+                        child: containerFooterButton("View Detail"),
                       )
 
 

@@ -9,13 +9,15 @@ import '../../CarouselGallery.dart';
 import '../../Settings.dart';
 import './Header.dart';
 class WebContainer_1 extends StatefulWidget{
+
+  final ScrollController controller;
+  WebContainer_1({required this.controller});
   @override
   State<WebContainer_1> createState() => _WebContainer_1State();
 }
 
 class _WebContainer_1State extends State<WebContainer_1> with TickerProviderStateMixin {
   late AnimationController AnimationController_0;
-
   late AnimationController AnimationController_1;
   late AnimationController AnimationController_2;
   late AnimationController AnimationController_3;
@@ -25,39 +27,29 @@ class _WebContainer_1State extends State<WebContainer_1> with TickerProviderStat
   @override
   void initState(){
     AnimationController_0 = AnimationController(vsync: this, duration: Duration(seconds: 1));
-
     AnimationController_1 = AnimationController(vsync: this, duration: Duration(seconds: 1));
     AnimationController_2 = AnimationController(vsync: this, duration: Duration(seconds: 1));
     AnimationController_3 = AnimationController(vsync: this, duration: Duration(seconds: 1));
     AnimationController_4 = AnimationController(vsync: this, duration: Duration(seconds: 1));
-
     super.initState();
-
-
   }
+
   @override
   void didChangeDependencies(){
 
     var result = Provider.of<MyScrollPosition>(context, listen: false);
-    if(result.scrollPosition == 0){
+    if(widget.controller.offset== 0){
       AnimationController_1.forward().whenComplete(() => AnimationController_0.forward().then((value) =>
           Future.delayed(Duration(seconds: 1)).then((value) => AnimationController_2.forward() )));
-
-
-
     }
 
-
-    result.addListener(() {
-      if(result.scrollPosition >= 0){
+    widget.controller.addListener(() {
+      if(isForwardAnimatingTrue(widget.controller, 0) || isReverseAnimatingTrue(widget.controller, 0) ){
         AnimationController_1.forward().whenComplete(() => AnimationController_0.forward().then((value) =>
-              Future.delayed(Duration(seconds: 1)).then((value) => AnimationController_2.forward() )));
-
-
-
+            Future.delayed(Duration(seconds: 1)).then((value) => AnimationController_2.forward() )));
       }
-
     });
+
 
 
   }
@@ -87,7 +79,6 @@ class _WebContainer_1State extends State<WebContainer_1> with TickerProviderStat
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(height: rem(1.5),),
-                                SecondLineAnimation(AnimationController_1),
 
                                 FadeInDemo(
                                   controller: AnimationController_2,
@@ -120,6 +111,15 @@ class _WebContainer_1State extends State<WebContainer_1> with TickerProviderStat
     );
 
   }
+  @override
+  void dispose(){
+    if (mounted) {
+      AnimationController_2.dispose();
+
+    }
+    super.dispose();
+
+  }
 }
 
 
@@ -130,40 +130,32 @@ class LineAnimation extends StatefulWidget {
 }
 
 class _LineAnimationoState extends State<LineAnimation> with TickerProviderStateMixin {
-  late AnimationController _controller;
-  late AnimationController _imageController;
-  late CurvedAnimation _curve;
 
   @override
   void initState() {
-    _controller = AnimationController(vsync: this, duration: Duration(seconds: 1));
-    _imageController = AnimationController(vsync: this, duration: Duration(seconds: 1));
-    _curve = CurvedAnimation(parent: widget.controller, curve: Curves.easeIn);
-    widget.controller.addListener(() {
-      if(widget.controller.isCompleted){
-        _imageController.forward();
-      }
 
-    });
   }
 
-  late final Animation _offsetAnimation = Tween(begin: 0, end: MediaQuery.of(context).size.width,).animate(CurvedAnimation(parent: widget.controller, curve: Curves.easeInOut,));
 
 
-  late final Animation<Offset> _imageAnimation = Tween<Offset>(begin: Offset(0.0, 1.0), end: Offset(0.0,0),).animate(CurvedAnimation(parent: _imageController, curve: Curves.easeIn,));
+  late final Animation<Offset> _imageAnimation = Tween<Offset>(begin: Offset(0.0, 1.0), end: Offset(0.0,0),).animate(CurvedAnimation(parent: widget.controller, curve: Curves.easeIn,));
 
   @override
   Widget build(BuildContext context) {
-    return SlideTransition(
-      position: _imageAnimation,
-      child: Image.asset('assets/images/logo/big_logo.png', width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.width/2699*305,),);
+    return Stack(
+      children: [
+        SlideTransition(
+          position: _imageAnimation,
+          child: Image.asset('assets/images/logo/big_logo.png', width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.width/2699*305,),),
+
+        Positioned(
+            bottom: MediaQuery.of(context).size.width/2699*305,
+            child: Container(color: Colors.white, width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.width/2699*305,))
+      ],
+    );
   }
 
-  @override
-  dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+
 }
 
 

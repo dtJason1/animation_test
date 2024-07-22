@@ -8,6 +8,9 @@ import '../../Settings.dart';
 
 
 class WebContainer_6 extends StatefulWidget{
+
+  final ScrollController controller;
+  WebContainer_6({required this.controller});
   @override
   State<WebContainer_6> createState() => _WebContainer_6State();
 }
@@ -20,7 +23,11 @@ class _WebContainer_6State extends State<WebContainer_6> with TickerProviderStat
   late AnimationController AnimationController_3;
   late AnimationController AnimationController_4;
 
+  @override
+  void dispose(){
+    super.dispose();
 
+  }
   @override
   void initState(){
     AnimationController_0 = AnimationController(vsync: this, duration: Duration(seconds: 1));
@@ -30,6 +37,30 @@ class _WebContainer_6State extends State<WebContainer_6> with TickerProviderStat
     AnimationController_3 = AnimationController(vsync: this, duration: Duration(seconds: 1));
     AnimationController_4 = AnimationController(vsync: this, duration: Duration(seconds: 1));
 
+    if(mounted){
+      widget.controller.addListener(() {
+        if(isForwardAnimatingTrue(widget.controller, 4000 + MediaQuery.of(context).size.width/16*11 + 500) || isReverseAnimatingTrue(widget.controller, 4000 + MediaQuery.of(context).size.width/16*11 + 1000) ){
+          AnimationController_0.forward();
+        }
+
+        if(isForwardAnimatingTrue(widget.controller, 4000 + MediaQuery.of(context).size.width/16*11 + 1000) || isReverseAnimatingTrue(widget.controller, 4000 + MediaQuery.of(context).size.width/16*11 + 1500) ){
+          AnimationController_1.forward();
+        }
+        if(isForwardAnimatingTrue(widget.controller, 4000 + MediaQuery.of(context).size.width/16*11 + 1200) || isReverseAnimatingTrue(widget.controller, 4000 + MediaQuery.of(context).size.width/16*11 + 2000) ){
+          AnimationController_2.forward();
+        }
+        if(isForwardAnimatingTrue(widget.controller, 4000 + MediaQuery.of(context).size.width/16*11 + 1400) || isReverseAnimatingTrue(widget.controller, 4000 + MediaQuery.of(context).size.width/16*11 + 2200) ){
+          AnimationController_3.forward();
+        }
+        if(isForwardAnimatingTrue(widget.controller, 4000 + MediaQuery.of(context).size.width/16*11 + 1500) || isReverseAnimatingTrue(widget.controller, 4000 + MediaQuery.of(context).size.width/16*11 + 2300) ){
+          AnimationController_4.forward();
+        }
+
+      });
+
+
+    }
+
     super.initState();
 
 
@@ -37,23 +68,8 @@ class _WebContainer_6State extends State<WebContainer_6> with TickerProviderStat
   @override
   void didChangeDependencies(){
 
-    var result = Provider.of<MyScrollPosition>(context);
-    result.addListener(() {
-      if((result.scrollPosition > 6500 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 7800 ) ){
-        AnimationController_0.forward();
-      }
 
-      if((result.scrollPosition > 6700 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 8200 ) ){
-        AnimationController_1.forward();
-      }
-      if((result.scrollPosition > 6900 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 8600 ) ){
-        AnimationController_2.forward();
-      }
-      if((result.scrollPosition > 7100 && !result.isScrollUp) || (result.isScrollUp && result.scrollPosition < 9000 ) ){
-        AnimationController_3.forward();
-      }
 
-    });
 
   }
   @override
