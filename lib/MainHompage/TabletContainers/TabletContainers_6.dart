@@ -70,8 +70,8 @@ class _TabletContainer_6State extends State<TabletContainer_6> with TickerProvid
 
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              FadeInDemo(
-                controller: AnimationController_0,
+              FadeInDemo2(
+                scrollController: widget.controller,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -115,8 +115,8 @@ class _TabletContainer_6State extends State<TabletContainer_6> with TickerProvid
 
                 children: [
 
-                  FadeInDemo(
-                    controller: AnimationController_1,
+                  FadeInDemo2(
+                    scrollController: widget.controller,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -143,8 +143,8 @@ class _TabletContainer_6State extends State<TabletContainer_6> with TickerProvid
                   Container(height: rem(3),),
                   Column(
                     children: [
-                      FadeInDemo(
-                        controller: AnimationController_2,
+                      FadeInDemo2(
+                        scrollController: widget.controller,
                         child: Row(children: [
                           Container(height: MediaQuery.of(context).size.width/100*12, width: (MediaQuery.of(context).size.width- rem(1)*4)/3, color: Color.fromRGBO(245, 245, 245, 1),
                             child:  Image.asset("assets/images/logo.png"),),
@@ -160,8 +160,8 @@ class _TabletContainer_6State extends State<TabletContainer_6> with TickerProvid
                         ],),
                       ),
                       Container(height: rem(1),),
-                      FadeInDemo(
-                        controller: AnimationController_3,
+                      FadeInDemo2(
+                        scrollController: widget.controller,
                         child: Row(children: [
                           Container(height: MediaQuery.of(context).size.width/100*12, width: (MediaQuery.of(context).size.width- rem(1)*4)/3, color: Color.fromRGBO(245, 245, 245, 1),
                             child:  Image.asset("assets/images/logo.png"),),

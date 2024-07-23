@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kenshin_clone/Homepage.dart';
+import 'package:kenshin_clone/MainHompage/WebContainers/WebWidgets.dart';
 import 'package:provider/provider.dart';
 import '../../provider.dart';
 import '../../FadeInDemo.dart';
@@ -85,30 +86,14 @@ class _WebContainer_6State extends State<WebContainer_6> with TickerProviderStat
 
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              FadeInDemo(
-                controller: AnimationController_0,
+              FadeInDemo2(
+                scrollController: widget.controller,
                 child: Column(crossAxisAlignment:CrossAxisAlignment.start,
                   children: [
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        ElevatedButton(
-
-                          style:ElevatedButton.styleFrom(
-
-                            backgroundColor: Colors.white,
-                            surfaceTintColor: Colors.white,
-                            foregroundColor: Colors.white,
-                            shadowColor: Colors.transparent,
-                            padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
-                            shape: RoundedRectangleBorder(side: BorderSide(
-                                color: Colors.black,
-                                width: 1,
-                                style: BorderStyle.solid
-                            ), borderRadius: BorderRadius.circular(24)),
-
-                          )  ,
-                          onPressed: (){print("get in touch");}, child: Text("TESTIMONIAL" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
+                        containerHeaderButton("TESTIMONIAL"),
                         Container(width: MediaQuery.of(context).size.width/12*3,),
                         Container(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width/12*6,),
                           child: Text("We help you avoid looking like the rest of them",style: TextStyle(fontWeight: FontWeight.w500, fontSize: rem(3.5), ),)
@@ -129,8 +114,8 @@ class _WebContainer_6State extends State<WebContainer_6> with TickerProviderStat
 
                 children: [
 
-                  FadeInDemo(
-                    controller: AnimationController_2,
+                  FadeInDemo2(
+                    scrollController: widget.controller,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -156,8 +141,9 @@ class _WebContainer_6State extends State<WebContainer_6> with TickerProviderStat
                   ),
                   Column(
                     children: [
-                      FadeInDemo(
-                        controller: AnimationController_1,
+                      FadeInDemo2(
+                        scrollController: widget.controller,
+
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -178,8 +164,8 @@ class _WebContainer_6State extends State<WebContainer_6> with TickerProviderStat
                           ],
                         ),
                       ),
-                      FadeInDemo(
-                        controller: AnimationController_2,
+                      FadeInDemo2(
+                        scrollController: widget.controller,
                         child: Row(children: [
                           Container(height: MediaQuery.of(context).size.width/100*12, width: MediaQuery.of(context).size.width/12*2, color: Color.fromRGBO(245, 245, 245, 1),
                             child:  Image.asset("assets/images/logo.png"),),

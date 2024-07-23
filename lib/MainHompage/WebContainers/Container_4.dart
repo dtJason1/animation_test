@@ -98,88 +98,21 @@ class _WebContainer_4State extends State<WebContainer_4> with TickerProviderStat
                 ),
               ),
 
-              FadeInDemo(
-                controller: AnimationController_1,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                  Container(
-                    width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TranslateOnHover(child:
-                            Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
-                        ),
-                        Text("Duke",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
-                        Text("Brand Identity",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
-
-                      ],
-                    ),
-                  ),
-                    Container(
-                      width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TranslateOnHover(child:
-                          Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
-                          ),
-                          Text("Saason",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
-                          Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
-
-                        ],
-                      ),
-                    ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Works(name: "Duke", explanation: "Brand Identity", scrollController: widget.controller, width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2),
+                  Works(name: "Sasson", explanation: "Web Designer", scrollController: widget.controller, width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2),
 
 
-                ],),
-              ),
-              FadeInDemo(
-                controller: AnimationController_2,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TranslateOnHover(child:
-                          Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
-                          ),
-                          Text("Levi Colwill",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
-                          Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
-
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TranslateOnHover(child:
-                          Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
-                          ),
-                          Text("Will",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
-                          Text("Branding",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),),
-                          Container(height: rem(5),),
-
-                          Container(
-                            width: 164.66,
-                            height: 38.67,
-                            child: containerFooterButton("More About Us"),
-                          )
-
-                        ],
-                      ),
-                    ),
-
-
-                  ],),
-              )
+              ],),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Works(name: "Levi Colwill", explanation: "Web Designer", scrollController: widget.controller, width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2),
+                  Works(name: "Will", explanation: "Branding", scrollController: widget.controller, width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2),
+                ],)
 
 
             ],
@@ -191,46 +124,19 @@ class _WebContainer_4State extends State<WebContainer_4> with TickerProviderStat
 }
 
 
-class ThisContainer extends StatelessWidget {
-  ThisContainer({this.child});
-  final child;
-  @override
-  Widget build(BuildContext context) {
-    return Container(child: child);
-  }
-}
 
-class TranslateOnHover extends StatefulWidget {
-  final Widget child;
-  TranslateOnHover({required this.child});
-
-  @override
-  _TranslateOnHoverState createState() => _TranslateOnHoverState();
-}
-
-class _TranslateOnHoverState extends State<TranslateOnHover> {
-  double scale = 1.0;
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (e) => _mouseEnter(true),
-      onExit: (e) => _mouseEnter(false),
-      child: TweenAnimationBuilder(
-        duration: const Duration(milliseconds: 300),
-        tween: Tween<double>(begin: 1.0, end: scale),
-        builder: (BuildContext context, double value, _) {
-          return Transform.scale(scale: value, child: widget.child);
-        },
-      ),
-    );
-  }
-
-  void _mouseEnter(bool hover) {
-    setState(() {
-      if (hover)
-        scale = 1.05;
-      else
-        scale = 1.0;
-    });
-  }
-}
+//
+// Container(
+// width: (MediaQuery.of(context).size.width-2*rem(2)-10)/2,
+// child: Column(
+// crossAxisAlignment: CrossAxisAlignment.start,
+// children: [
+// TranslateOnHover(child:
+// Image.asset("assets/images/macbook.png", width:(MediaQuery.of(context).size.width-2*rem(2)-10)/2 , height:(MediaQuery.of(context).size.width-2*rem(2)-10)/2/16*9,)
+// ),
+// Text("Saason",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4)),),
+// Text("Web Designer",style: TextStyle(fontWeight: FontWeight.w400, fontSize: rem(1.4), color: Color.fromRGBO(0, 0, 0, 0.5)),)
+//
+// ],
+// ),
+// ),

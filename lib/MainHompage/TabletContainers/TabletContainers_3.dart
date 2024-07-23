@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../../provider.dart';
 import '../../FadeInDemo.dart';
 import '../../Settings.dart';
+import './TabletWidgets.dart';
 
 
 class TabletContainer_3 extends StatefulWidget{
@@ -77,31 +78,14 @@ class _TabletContainer_3State extends State<TabletContainer_3> with TickerProvid
 
           width: MediaQuery.of(context).size.width,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start  ,
-
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
-              FadeInDemo(
-                controller: AnimationController_0,
+              FadeInDemo2(
+                scrollController: widget.controller,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ElevatedButton(
-                      style:ElevatedButton.styleFrom(
-
-                        backgroundColor: Colors.white,
-                        surfaceTintColor: Colors.white,
-                        foregroundColor: Colors.white,
-                        shadowColor: Colors.transparent,
-                        padding: EdgeInsets.fromLTRB(rem(0.75), rem(0.25), rem(0.75), rem(0.25)),
-                        shape: RoundedRectangleBorder(side: BorderSide(
-                            color: Colors.black,
-                            width: 1,
-                            style: BorderStyle.solid
-                        ), borderRadius: BorderRadius.circular(24)),
-
-                      )  ,
-                      onPressed: (){print("get in touch");}, child: Text("Services" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),),
+                    containerHeaderButton("Services"),
                     SizedBox(height: rem(1),),
                     Container(width: MediaQuery.of(context).size.width, height: 1,color: Colors.black,),
                     SizedBox(height: rem(3),),
@@ -112,7 +96,7 @@ class _TabletContainer_3State extends State<TabletContainer_3> with TickerProvid
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  FadeInDemo(controller:AnimationController_0, child: Container(
+                  FadeInDemo2(scrollController:widget.controller, child: Container(
                     width: ((MediaQuery.of(context).size.width)-(2*rem(2)))/8*4,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -134,96 +118,21 @@ class _TabletContainer_3State extends State<TabletContainer_3> with TickerProvid
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
 
-                    children: [
-                      FadeInDemo(child:
-                      Row(
+                    children: List<Widget>.generate(serviceList.length, (index) => Services(text: serviceList[index], columnList: "(0${index+1})", scrollController: widget.controller, fontValue: 10, )) +
 
-                        children: [
-                          Text("Brand Design",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: MediaQuery.of(context).size.width/100*10)),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0,0,0,50),
-                            child: Text("(01)",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: rem(1))),
-                          )
-                        ],
-                      ), controller: AnimationController_0,),
-                      FadeInDemo(child:  Row(
-
-                        children: [
-                          Text("Web Design",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: MediaQuery.of(context).size.width/100*10)),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0,0,0,50),
-                            child: Text("(02)",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: rem(1))),
-                          )
-                        ],
-                      ), controller: AnimationController_1,),
-                      FadeInDemo(child: Row(
-
-                        children: [
-                          Text("Motion Design",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: MediaQuery.of(context).size.width/100*10)),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0,0,0,50),
-                            child: Text("(03)",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: rem(1))),
-                          )
-                        ],
-                      ),controller: AnimationController_2,),
-                      FadeInDemo(child: Row(
-
-                        children: [
-                          Text("3D Design",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: MediaQuery.of(context).size.width/100*10)),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0,0,0,50),
-                            child: Text("(04)",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: rem(1))),
-                          )
-                        ],
-                      ), controller: AnimationController_3,),
-                      FadeInDemo(child: Row(
-
-                        children: [
-                          Text("Development",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: MediaQuery.of(context).size.width/100*10)),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0,0,0,50),
-                            child: Text("(05)",style: TextStyle(fontWeight: FontWeight.w500 , fontSize: rem(1))),
-                          )
-                        ],
-                      ), controller: AnimationController_4,),
-                      SizedBox(height: rem(4),),
-                      FadeInDemo(
-                        controller: AnimationController_5,
-                        child: ElevatedButton(
-
-                          style:ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            surfaceTintColor: Colors.white,
-                            foregroundColor: Colors.white,
-                            shadowColor: Colors.transparent,
-                            padding: EdgeInsets.fromLTRB(rem(1), rem(0.25), rem(0.25), rem(0.25)),
-                            shape: RoundedRectangleBorder(side: BorderSide(
-                                color: Colors.black,
-                                width: 1,
-                                style: BorderStyle.solid
-                            ), borderRadius: BorderRadius.circular(24)),
-
-                          )  ,
-                          onPressed: (){print("get in touch");}, child: Container(
-                          width: 137.5,
-                            height: 38.67,
-                            child: Row(
-                            mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("View Detail" ,style:  TextStyle(color: Colors.black, fontSize: rem(1)),),
-                              SizedBox(width: rem(0.5),),
-                              Container(
-                                  decoration:  BoxDecoration(shape: BoxShape.circle, border: Border.all()),
-                                  child: Icon(Icons.arrow_forward_sharp , color: Colors.black,)
-                              )
-                            ],),
-                          ),),
-                      )
+                        [ SizedBox(height: rem(4),),
+                      Container(
+                        width: 170,
+                        child: FadeInDemo2(
+                            scrollController: widget.controller,
+                            child: containerFooterButton("Get In Touch")),
+                      )]
 
 
-                    ],)
+                  ),
 
-                ],
+              ]
+
               ),
             ],
           ),

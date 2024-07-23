@@ -8,6 +8,13 @@ import '../../FadeInDemo.dart';
 import '../../CarouselGallery.dart';
 import '../../Settings.dart';
 import './Header.dart';
+
+
+
+// 현재는 scrollController 를 받아와서,
+
+
+
 class WebContainer_1 extends StatefulWidget{
 
   final ScrollController controller;
